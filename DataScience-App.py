@@ -61,7 +61,7 @@ st.write("""
 # Add traces voor ieder vliegveld en totaal
 airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBERRA','DARWIN', 'GOLD COAST', 
             'HAMILTON ISLAND', 'HOBART', 'KARRATHA', 'LAUNCESTON', 'MACKAY', 'MELBOURNE', 'PERTH', 
-            'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK', 'All Australian Airports']
+            'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
 fig2= go.Figure()
 for airport in airports:
         fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
