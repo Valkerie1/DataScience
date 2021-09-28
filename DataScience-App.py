@@ -23,7 +23,7 @@ if st.button('Retrieve passenger data'):
     offset =0
     i = 0
 
-    #while i != (itterations/2)-1:
+    while i != (itterations/2)-1:
         url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
         
         r=requests.get(url)
@@ -41,7 +41,7 @@ if st.button('Retrieve passenger data'):
     #haal data op voor de 2e keer    
     datalist = []
 
-    #while i != itterations:
+    while i != itterations:
         url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
        
         r=requests.get(url)
