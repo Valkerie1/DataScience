@@ -312,16 +312,16 @@ fig3.update_layout(
             title='Domestic vs international passengers australian airports',
             xaxis_tickfont_size=14,
             yaxis=dict(
-              title='passengers',
-              titlefont_size=16,
-              tickfont_size=14,
-              ),
+            title='passengers',
+            titlefont_size=16,
+            tickfont_size=14,
+            ),
             legend=dict(
-              x=0.63,
-              y=1.0,
-              bgcolor='rgba(255, 255, 255, 0)',
-              bordercolor='rgba(255, 255, 255, 0)'
-              ),
+            x=0.63,
+            y=1.0,
+            bgcolor='rgba(255, 255, 255, 0)',
+            bordercolor='rgba(255, 255, 255, 0)'
+            ),
             barmode='group',
             bargap=0.15, # gap between bars of adjacent location coordinates.
             bargroupgap=0.1, # gap between bars of the same location coordinate.
