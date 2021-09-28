@@ -292,103 +292,7 @@ fig.update_layout({
 st.plotly_chart(fig)
 
 
-dropdown_buttons3= [{'label': 'All',
-            'method': 'update',
-            'args': [{'visible': [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]},
-                        {'title': 'All Airports'}]},
-            {'label': 'Adelaide',
-            'method': 'update',
-            'args': [{'visible': [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Adelaide'}]},
-            {'label': 'Alce Springs',
-            'method': 'update',
-            'args': [{'visible': [False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Alice Springs'}]},
-            {'label': 'Ballina',
-            'method': 'update',
-            'args': [{'visible': [False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Ballina'}]},
-            {'label': 'Brisbane',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Brisbane'}]},
-            {'label': 'Cairns',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Cairns'}]},
-            {'label': 'Canberra',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Canberra'}]},
-            {'label': 'Darwin',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Darwin'}]},
-            {'label': 'Gold Coast',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Gold Coast'}]},
-            {'label': 'Hamilton Island',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Hamilton Island'}]},
-            {'label': 'Hobart',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Hobart'}]},
-            {'label': 'Karratha',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Karratha'}]},
-            {'label': 'Launceston',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]},
-                        {'title': 'Launceston'}]},
-            {'label': 'Mackay',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False]},
-                        {'title': 'Mackay'}]},
-            {'label': 'Melbourne',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]},
-                        {'title': 'Melbourne'}]},
-            {'label': 'Perth',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False]},
-                        {'title': 'Perth'}]},
-            {'label': 'Rockhampton',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False]},
-                        {'title': 'Rockhampton'}]},
-            {'label': 'Sunshine Coast',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False]},
-                        {'title': 'Sunshine Coast'}]},
-            {'label': 'Sydney',
-            'method': 'update',
-                        'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False]},
-            {'title': 'Sydney'}]},
-            {'label': 'Townsville',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False]},
-                        {'title': 'Townsville'}]},
-            {'label': 'Newcastle',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False]},
-                        {'title': 'Newcastle'}]},
-            {'label': 'Ayers Rock',
-            'method': 'update',
-            'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True]},
-                        {'title': 'Ayers Rock'}]},
-]
 
-fig4= go.Figure()
-for airport in airports:
-        fig4.add_trace(go.Bar(y= df[df['AIRPORT'] == airport]['Int_Pax_Total'],
-                                 name= airport,
-                                 text= df[df['AIRPORT'] == airport]['Date']
-                                ))
-'''
 #fig 3 dom vs int pax
 df_month12=df.query('Month ==12')
 
@@ -431,8 +335,8 @@ fig3.update_layout({
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons3
             }]})
-'''
-st.plotly_chart(fig4)
+
+st.plotly_chart(fig3)
 
 
 
