@@ -279,7 +279,8 @@ for airport in airports:
 
 fig.update_layout(title_text="Passenger growth Australian airports",
             xaxis_title='Years',
-            yaxis_title='Total number of passengers', width=960, height=620)
+            yaxis_title='Total number of passengers', width=960, height=620,
+            title={'x':0.5, 'xanchor':'center'})
 
 
 
@@ -311,10 +312,10 @@ fig3.add_trace(go.Bar(x=airports,
                 ))
 
 fig3.update_layout(
-            title='Domestic vs international passengers australian airports',
+            title='Domestic and international passengers per airport',
             xaxis_tickfont_size=14,
             yaxis=dict(
-              title='passengers',
+              title='Total number of passengers',
               titlefont_size=16,
               tickfont_size=14,
               ),
@@ -328,7 +329,8 @@ fig3.update_layout(
             bargap=0.02, # gap between bars of adjacent location coordinates.
             bargroupgap=0.05, # gap between bars of the same location coordinate.
             width = 900,
-            height = 620
+            height = 620,
+            title={'x':0.5, 'xanchor':'center'}
             )
 
 st.plotly_chart(fig3)
