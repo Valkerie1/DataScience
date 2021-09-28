@@ -8,8 +8,8 @@ import plotly.graph_objects as go
 
 st.title('Australian passenger information')
 
-st.button('Retrieve passenger data')
-#st.write('hello')
+if st.button('Retrieve passenger data'):
+    st.write('hello')
 
 ##  Passenger info
 #eerste call naar API
