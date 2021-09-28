@@ -31,10 +31,11 @@ if st.button('Retrieve passenger data'):
         datajs = json.loads(datatxt)
         datalist.append(datajs['result']['records'])
     
-        print(datalist)
-        print(i)
         offset=offset+100
         i = i+1
+        print(datalist)
+        print(i)
+        
     listtemp = [x for l in datalist for x in l]
     part1 = pd.DataFrame(listtemp)
     
@@ -50,10 +51,11 @@ if st.button('Retrieve passenger data'):
         datalist.append(datajs['result']['records'])
     
     
-        print(datalist)
-        print(i)
         offset=offset+100
         i = i+1
+        print(datalist)
+        print(i)
+        
 
     listtemp = [x for l in datalist for x in l]
     part2 = pd.DataFrame(listtemp)
