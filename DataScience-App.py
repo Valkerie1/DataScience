@@ -329,13 +329,6 @@ fig3.update_layout(
             height = 620
             )
 
-fig3.update_layout({
-            'updatemenus':[{'type': 'dropdown',
-            'x': 1.24, 'y': 1.1,
-            'showactive': True, 'active': 0,
-            'buttons': dropdown_buttons3
-            }]})
-
 st.plotly_chart(fig3)
 
 
