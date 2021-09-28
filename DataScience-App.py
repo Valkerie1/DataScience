@@ -308,7 +308,7 @@ fig3.add_trace(go.Bar(x=airports,
 fig3.add_trace(go.Bar(x=airports,
                 y= df_month12.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
                 name ='Domestic passengers',
-                marker_color='rgb(26, 118, 255)')
+                marker_color='rgb(26, 118, 255)'))
 
 fig3.update_layout(title_text="Domestic and international passengers per airport",
             xaxis_tickfont_size=14,
