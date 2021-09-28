@@ -171,7 +171,7 @@ fig2.update_layout(title_text="Passengers per air traffic movement",
 
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
-                    'x': 1.2, 'y': 1.1,
+                    'x': 1.22, 'y': 1.1,
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
