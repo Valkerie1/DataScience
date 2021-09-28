@@ -23,11 +23,6 @@ st.text("""
 
 st.subheader('1. Introduction')
 st.write("""
-Vliegen, bijna iedereen heeft het wel eens gedaan. Het zorgt voor een snelle verbinding naar die belangrijke vergadering, of een relaxte reis naar je vakantie bestemming.
-Dagelijks vliegen er meer dan 100.000 vliegtuigen over de hele wereld. Deze vervoeren een geschatte 6 miljoen passagiers per dag.
-Australië is veruit het grootste land in Oceanië en een van de grootste landen ter wereld. Door de grootte zouden er dan veel vluchten moeten zijn in Australië, maar hoeveel vluchten zijn er?
-En hoeveel vluchten zijn er in 2030 verwacht?
-
 Flying, almost everyone has done it. Flying ensures a fast connection to the other side of the world for that import meeting, or just a relaxed flight to the holiday destination.
 It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances or for fast travel times.
 Surely, a large country such as Australia must have a large number of daily flights. The long distances, makes domestic flights a very suitable mode of transport, but how many flights are there? and what is the estimated number of flights in 2030?
