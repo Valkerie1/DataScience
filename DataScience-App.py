@@ -171,7 +171,7 @@ fig2.update_layout(title_text="Passenger growth Australian airports",
 
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
-                    'x': 1.2, 'y': 1.2,
+                    'x': 1.2, 'y': 1.05,
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
@@ -284,7 +284,7 @@ fig.update_layout(title_text="Passenger growth Australian airports",
 
 fig.update_layout({
             'updatemenus':[{'type': 'dropdown',
-            'x': 1.2, 'y': 1.2,
+            'x': 1.2, 'y': 1.05,
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons
             }]})
@@ -307,6 +307,10 @@ fig3.add_trace(go.Bar(x=airports,
                 name ='Domestic passengers',
                 marker_color='rgb(26, 118, 255)'
                 ))
+
+fig.update_layout(title_text="Passenger growth Australian airports",
+            xaxis_title='Years',
+            yaxis_title='Total passengers', width=950, height=620)
 
 fig3.update_layout(
             title='Domestic vs international passengers australian airports',
