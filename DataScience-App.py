@@ -19,7 +19,7 @@ cols=['Year','Month']
 df['Date'] = df[cols].apply(lambda x: '-'.join(x.values.astype(str)), axis='columns')
 df['Date'] = pd.to_datetime(df['Date'])
 
-time_data = pd.DataFrame(df.groupby(['Date'])[['Pax_Total','Acm_Total']].sum())
+time_data = pd.DataFrame(df.groupby(['Date'])['Pax_Total'].sum())   #time_data = pd.DataFrame(df.groupby(['Date'])[['Pax_Total','Acm_Total']].sum())
 
 time_buttons = [{'count': 37, 'step':'year', 'stepmode':'todate', 'label':'All'},
               {'count': 6, 'step':'month', 'stepmode':'backward', 'label':'6MTH'}, 
