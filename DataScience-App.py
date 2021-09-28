@@ -113,8 +113,8 @@ if st.button('Retrieve passenger data'):
     #voeg de data samen voor de passengers
     aircraft = part1.append(part2)
     
-st.dataframe(passengers)
-st.dataframe(aircraft)
+    st.dataframe(passengers)
+    st.dataframe(aircraft)
     
     
 '''    
