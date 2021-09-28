@@ -8,30 +8,117 @@ import plotly.graph_objects as go
 
 st.title('Australian passenger information')
 
+##  Passenger info
+#eerste call naar API
 url = 'https://data.gov.au/data/api/3/action/datastore_search?&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
 r=requests.get(url)
 datatxt= r.text
 datajs = json.loads(datatxt)
-datalist = datajs['result']['records']
-df = pd.DataFrame(datalist)
+length = datajs['result']['total']-1
+itterations = round(length/100)
 
-cols=['Year','Month']
-df['Date'] = df[cols].apply(lambda x: '-'.join(x.values.astype(str)), axis='columns')
-df['Date'] = pd.to_datetime(df['Date'])
+#haal data op voor de 1e keer
+datalist = []
+offset =0
+i = 0
 
-time_data = pd.DataFrame(df.groupby(['Date'])['Pax_Total'].sum())   #time_data = pd.DataFrame(df.groupby(['Date'])[['Pax_Total','Acm_Total']].sum())
+while i != (itterations/2)-1:
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+        
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    datalist.append(datajs['result']['records'])
+    
+    print(datalist)
+    print(i)
+    offset=offset+100
+    i = i+1
+listtemp = [x for l in datalist for x in l]
+part1 = pd.DataFrame(listtemp)
+    
+#haal data op voor de 2e keer    
+datalist = []
 
-time_buttons = [{'count': 37, 'step':'year', 'stepmode':'todate', 'label':'All'},
-              {'count': 6, 'step':'month', 'stepmode':'backward', 'label':'6MTH'}, 
-              {'count': 1, 'step':'year', 'stepmode':'backward', 'label':'1YR'},
-              {'count': 5, 'step':'year', 'stepmode':'backward', 'label':'5YR'},
-              {'count': 10, 'step':'year', 'stepmode':'backward', 'label':'10YR'},
-              {'count': 20, 'step':'year', 'stepmode':'backward', 'label':'20YR'}]
+while i != itterations:
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+       
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    datalist.append(datajs['result']['records'])
+    
+    
+    print(datalist)
+    print(i)
+    offset=offset+100
+    i = i+1
 
-fig = px.bar(data_frame=time_data, x=time_data.index, y='Pax_Total')
+listtemp = [x for l in datalist for x in l]
+part2 = pd.DataFrame(listtemp)
 
-fig.update_layout({'xaxis':{'rangeselector':{'buttons':time_buttons}}})
-fig.update_xaxes(title_text='Date')
-fig.update_yaxes(title_text='Total number of passengers in millions')
+#voeg de data samen voor de passengers
+passengers = part1.append(part2)
 
-st.plotly_chart(fig)
+
+
+##  Aircraft info
+#eerste call naar API
+url = 'https://data.gov.au/data/api/3/action/datastore_search?resource_id=583be26d-59b9-4bcc-827d-4d9f7162fb04'
+r=requests.get(url)
+datatxt= r.text
+datajs = json.loads(datatxt)
+length = datajs['result']['total']-1
+itterations = round(length/100)
+
+#haal data op voor de 1e keer
+datalist = []
+offset =0
+i = 0
+
+while i != (itterations/2)-1:
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + 'resource_id=583be26d-59b9-4bcc-827d-4d9f7162fb04'
+        
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    datalist.append(datajs['result']['records'])
+    
+    print(datalist)
+    print(i)
+    offset=offset+100
+    i = i+1
+listtemp = [x for l in datalist for x in l]
+part1 = pd.DataFrame(listtemp)
+    
+#haal data op voor de 2e keer    
+datalist = []
+
+while i != itterations:
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + 'resource_id=583be26d-59b9-4bcc-827d-4d9f7162fb04'
+       
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    datalist.append(datajs['result']['records'])
+    
+    
+    print(datalist)
+    print(i)
+    offset=offset+100
+    i = i+1
+
+listtemp = [x for l in datalist for x in l]
+part2 = pd.DataFrame(listtemp)
+
+#voeg de data samen voor de aircrafts
+aircraft = part1.append(part2)
+
+##  Data preperatie
+df= passengers.merge(aircraft, on= ['AIRPORT', 'Year', 'Month'])
+df["Pax_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Pax_Total"].transform('cumsum')
+df["Acm_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Acm_Total"].transform('cumsum')
+
+streamlit.dataframe(df)
+
+#st.plotly_chart(fig)
