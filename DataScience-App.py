@@ -298,6 +298,7 @@ st.plotly_chart(fig)
 df_month12=df.query('Month ==12')
 
 fig3 = go.Figure()
+fig3.update_layout(yaxis_type="log")
 fig3.add_trace(go.Bar(x=airports,
                 y= df_month12.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
                 name='International passengers',
