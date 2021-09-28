@@ -64,6 +64,6 @@ passengers = part1.append(part2)
 
 
 
-st.dataframe(df)
+st.dataframe(passengers)
 
 #st.plotly_chart(fig)
