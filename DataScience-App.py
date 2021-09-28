@@ -37,7 +37,7 @@ st.subheader('4. Vlieg bewegingen')
 st.write("""
 
 """)
-st.subheader('Voorspelling tot 2030')
+st.subheader('5. Voorspelling tot 2030')
 st.write("""
 
 """)
