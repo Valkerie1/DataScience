@@ -10,12 +10,20 @@ import time
 st.title('Top 20 Australische vliegvelden')
 st.subheader('Inhoudsopgaven')
 st.write("""
-        test
+- 1 Introductie
+- 2 Vliegveld overzicht
+- 3 Passagiers hoeveelheden
+- 4 Vliegtuig bewegingen
+- 5 Conclusie
 
-test
+
+
 """)
 
+st.subheader('1 Introductie')
+st.write("""
 
+""")
 
 
 '''  
