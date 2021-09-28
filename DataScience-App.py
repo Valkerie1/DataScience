@@ -310,7 +310,7 @@ fig3.add_trace(go.Bar(x=airports,
                 name ='Domestic passengers',
                 marker_color='rgb(26, 118, 255)'
                 ))
-
+'''
 fig3.update_layout(
             title='Domestic and international passengers per airport',
             title={'x':0.5, 'xanchor':'center'},
@@ -332,6 +332,16 @@ fig3.update_layout(
             width = 900,
             height = 620
             )
+'''
+fig3.update_layout(title_text="Domestic and international passengers per airport",
+            xaxis_tickfont_size=14,
+            yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
+            legend=dict(x=0.7, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
+            barmode='group',
+            bargap=0.02,
+            bargroupgap=0.05,
+            width=950, height=620,
+            title={'x':0.5, 'xanchor':'center'})
 
 st.plotly_chart(fig3)
 
