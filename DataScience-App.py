@@ -165,13 +165,13 @@ for airport in airports:
                                   text= df[df['AIRPORT'] == airport]['Date']
                                 ))
 
-fig2.update_layout(title_text="Passenger growth Australian airports",
-            xaxis_title='Years',
-            yaxis_title='Total passengers', width=950, height=620)
+fig2.update_layout(title_text="Passengers per air traffic movement",
+            xaxis_title='Total passengers',
+            yaxis_title='Air traffic movements', width=950, height=620)
 
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
-                    'x': 1.2, 'y': 1.05,
+                    'x': 1.2, 'y': 1.1,
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
@@ -284,7 +284,7 @@ fig.update_layout(title_text="Passenger growth Australian airports",
 
 fig.update_layout({
             'updatemenus':[{'type': 'dropdown',
-            'x': 1.2, 'y': 1.05,
+            'x': 1.2, 'y': 1.1,
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons
             }]})
@@ -308,27 +308,25 @@ fig3.add_trace(go.Bar(x=airports,
                 marker_color='rgb(26, 118, 255)'
                 ))
 
-fig.update_layout(title_text="Passenger growth Australian airports",
-            xaxis_title='Years',
-            yaxis_title='Total passengers', width=950, height=620)
-
 fig3.update_layout(
             title='Domestic vs international passengers australian airports',
             xaxis_tickfont_size=14,
             yaxis=dict(
-            title='passengers',
-            titlefont_size=16,
-            tickfont_size=14,
-            ),
+              title='passengers',
+              titlefont_size=16,
+              tickfont_size=14,
+              ),
             legend=dict(
-            x=0.63,
-            y=1.0,
-            bgcolor='rgba(255, 255, 255, 0)',
-            bordercolor='rgba(255, 255, 255, 0)'
-            ),
+              x=0.63,
+              y=1.0,
+              bgcolor='rgba(255, 255, 255, 0)',
+              bordercolor='rgba(255, 255, 255, 0)'
+              ),
             barmode='group',
             bargap=0.15, # gap between bars of adjacent location coordinates.
-            bargroupgap=0.1 # gap between bars of the same location coordinate.
+            bargroupgap=0.1, # gap between bars of the same location coordinate.
+            width = 950,
+            height = 620
             )
 st.plotly_chart(fig3)
 
