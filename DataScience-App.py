@@ -284,7 +284,7 @@ fig.update_layout(title_text="Passenger growth Australian airports",
 
 fig.update_layout({
             'updatemenus':[{'type': 'dropdown',
-            'x': 1.5, 'y': 1.1,
+            'x': 1.3, 'y': 1.1,
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons
             }]})
