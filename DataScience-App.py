@@ -7,23 +7,48 @@ import plotly.express as px
 import plotly.graph_objects as go
 import time
 
-st.title('Top 20 Australische vliegvelden')
+st.title('Groei voorspelling Australische vliegverkeer tot 2030')
 st.subheader('Inhoudsopgaven')
 st.text("""
 - 1. Introductie
 - 2. Vliegveld overzicht
-- 3. Passagiers hoeveelheden
-- 4. Vliegtuig bewegingen
-- 5. Conclusie
+- 3. Passagiers aantallen
+- 4. Vlieg bewegingen
+- 5. Voorspelling tot 2030
+- 6. Conclusie
 
 
 
 """)
 
-st.subheader('1 Introductie')
+st.subheader('1. Introductie')
 st.write("""
 
 """)
+st.subheader('2. Vliegveld overzicht')
+st.write("""
+
+""")
+st.subheader('3. Passagiers aantallen')
+st.write("""
+
+""")
+st.subheader('4. Vlieg bewegingen')
+st.write("""
+
+""")
+st.subheader('Voorspelling tot 2030')
+st.write("""
+
+""")
+st.subheader('6. Conclusie')
+st.write("""
+
+""")
+
+
+
+
 
 
 '''  
