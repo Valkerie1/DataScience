@@ -13,4 +13,4 @@ datajs = json.loads(datatxt)
 datalist = datajs['result']['records']
 df = pd.DataFrame(datalist)
 
-
+st.dataframe(df)
