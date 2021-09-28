@@ -310,9 +310,7 @@ fig3.add_trace(go.Bar(x=airports,
 
 fig3.update_layout(
             title='Domestic vs international passengers australian airports',
-            xaxis=dict(
-              title='df_month12['AIRPORT']
-              xaxis_tickfont_size=14,
+            xaxis_tickfont_size=14,
             yaxis=dict(
               title='passengers',
               titlefont_size=16,
@@ -327,7 +325,7 @@ fig3.update_layout(
             barmode='group',
             bargap=0.15, # gap between bars of adjacent location coordinates.
             bargroupgap=0.1, # gap between bars of the same location coordinate.
-            width = 950,
+            width = 900,
             height = 620
             )
 
