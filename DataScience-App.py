@@ -22,10 +22,15 @@ st.text("""
 #chapter 1
 st.subheader('1. Introduction')
 st.write("""
-Flying, almost everyone has done it. Flying ensures a fast connection to the other side of the world for that important meeting, or just a relaxed flight to the holiday destination.
-It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances or for fast travel times.
-Surely, a large country such as Australia must have a large number of daily flights. The long distances, makes domestic flights a very suitable mode of transport, but how many flights are there? and what is the estimated number of flights in 2030?
-This is important since, air transportation is at the heart of the Australian economic growth. So a strong aviation industry is important for the Australian government as well as Australian citizens
+Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
+It is estimated that there are roughly 100.000 flights per day all around the world. 
+All these flights move an estimated 6 million passengers. 
+Most of the time, air travel is preferred for long distances or for fast travel times. 
+Surely, a large country such as Australia must have a large number of daily flights. 
+The long distances, makes domestic flights a very suitable mode of transport, but how many flights are there? 
+and what is the estimated number of flights in 2030? This is important since, air transportation is at the heart of the Australian economic growth. 
+So a strong aviation industry is important for the Australian government as well as Australian citizens
+
 
 """)
 
@@ -79,6 +84,118 @@ fig2.add_trace(go.Scatter(x= df2020['Pax_Total'],
                           name= "Corona",
                          text= df2020[df2020['AIRPORT'] == 'All Australian Airports']['Date']))
 st.plotly_chart(fig2)
+
+df_month12=df.query('Month ==12')
+fig = go.Figure()
+for airport in airports:
+fig.add_trace(go.Scatter(x= df_month12[df_month12['AIRPORT'] == airport]['Year'],
+y= df_month12[df_month12['AIRPORT'] == airport]['Pax_Total'],
+mode= 'lines+markers',
+name= airport))
+
+fig.update_layout(title_text="Passenger growth Australian airports",
+xaxis_title='Years',
+yaxis_title='Total passengers')
+
+dropdown_buttons= [{'label': 'All',
+'method': 'update',
+'args': [{'visible': [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]},
+{'title': 'All Airports'}]},
+{'label': 'Adelaide',
+'method': 'update',
+'args': [{'visible': [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Adelaide'}]},
+{'label': 'Alce Springs',
+'method': 'update',
+'args': [{'visible': [False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Alice Springs'}]},
+{'label': 'Ballina',
+'method': 'update',
+'args': [{'visible': [False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Ballina'}]},
+{'label': 'Brisbane',
+'method': 'update',
+'args': [{'visible': [False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Brisbane'}]},
+{'label': 'Cairns',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Cairns'}]},
+{'label': 'Canberra',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Canberra'}]},
+{'label': 'Darwin',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Darwin'}]},
+{'label': 'Gold Coast',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Gold Coast'}]},
+{'label': 'Hamilton Island',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Hamilton Island'}]},
+{'label': 'Hobart',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Hobart'}]},
+{'label': 'Karratha',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False]},
+{'title': 'Karratha'}]},
+{'label': 'Launceston',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]},
+{'title': 'Launceston'}]},
+{'label': 'Mackay',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False]},
+{'title': 'Mackay'}]},
+{'label': 'Melbourne',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]},
+{'title': 'Melbourne'}]},
+{'label': 'Perth',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False]},
+{'title': 'Perth'}]},
+{'label': 'Rockhampton',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False]},
+{'title': 'Rockhampton'}]},
+{'label': 'Sunshine Coast',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False]},
+{'title': 'Sunshine Coast'}]},
+{'label': 'Sydney',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False]},
+{'title': 'Sydney'}]},
+{'label': 'Townsville',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False]},
+{'title': 'Townsville'}]},
+{'label': 'Newcastle',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False]},
+{'title': 'Newcastle'}]},
+{'label': 'Ayers Rock',
+'method': 'update',
+'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True]},
+{'title': 'Ayers Rock'}]},
+]
+
+fig.update_layout({
+'updatemenus':[{'type': 'dropdown',
+'x': 1.2, 'y': 1.15,
+'showactive': True, 'active': 0,
+'buttons': dropdown_buttons
+}]})
+
+st.plotly_chart(fig)
+
 
 #chapter 4
 st.subheader('4. Forecasting Until 2030')
