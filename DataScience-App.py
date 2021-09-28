@@ -166,7 +166,7 @@ for airport in airports:
                                 ))
 
 fig2.update_layout(title_text="Passengers per air traffic movement",
-            xaxis_title='Total passengers',
+            xaxis_title='Total number of passengers',
             yaxis_title='Air traffic movements', width=950, height=620)
 
 fig2.update_layout({
@@ -278,7 +278,7 @@ for airport in airports:
 
 fig.update_layout(title_text="Passenger growth Australian airports",
             xaxis_title='Years',
-            yaxis_title='Total passengers', width=950, height=620)
+            yaxis_title='Total number of passengers', width=960, height=620)
 
 
 
