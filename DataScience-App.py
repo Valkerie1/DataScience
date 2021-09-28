@@ -189,7 +189,7 @@ dropdown_buttons= [{'label': 'All',
 
 fig.update_layout({
 'updatemenus':[{'type': 'dropdown',
-'x': 1.2, 'y': 1.15,
+'x': 1, 'y': 1.5,
 'showactive': True, 'active': 0,
 'buttons': dropdown_buttons
 }]})
