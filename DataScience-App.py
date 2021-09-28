@@ -14,6 +14,8 @@ for percent_complete in range(100):
   time.sleep(0.1)
   my_bar.progress(percent_complete +1)
 
+st.balloons()
+
 
 '''
 url1= 'https://data.gov.au/data/dataset/cc5d888f-5850-47f3-815d-08289b22f5a8/resource/38bdc971-cb22-4894-b19a-814afc4e8164/download/mon_pax_web.csv'  
