@@ -5,6 +5,7 @@ import requests
 import json
 import plotly.express as px
 import plotly.graph_objects as go
+import time
 
 st.title('Australian passenger information')
 
