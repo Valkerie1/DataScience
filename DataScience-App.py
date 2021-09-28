@@ -10,7 +10,8 @@ import time
 st.title('Top 20 Australische vliegvelden')
 st.text('test')
 
-
+with st.sidebar.beta_expander("test'):
+    st.info("This will work")
 
 
 '''  
