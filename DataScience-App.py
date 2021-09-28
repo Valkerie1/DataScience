@@ -381,6 +381,14 @@ dropdown_buttons3= [{'label': 'All',
             'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True]},
                         {'title': 'Ayers Rock'}]},
 ]
+
+fig4= go.Figure()
+for airport in airports:
+        fig4.add_trace(go.Bar(y= df[df['AIRPORT'] == airport]['Int_Pax_Total'],
+                                 name= airport,
+                                 text= df[df['AIRPORT'] == airport]['Date']
+                                ))
+'''
 #fig 3 dom vs int pax
 df_month12=df.query('Month ==12')
 
@@ -423,8 +431,8 @@ fig3.update_layout({
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons3
             }]})
-
-st.plotly_chart(fig3)
+'''
+st.plotly_chart(fig4)
 
 
 
