@@ -63,7 +63,7 @@ st.subheader('3. Exploratory Data Analysis')
 st.write("""
 
 """)
-# Add traces voor ieder vliegveld en totaal
+# fig 2 pax vs acm
 airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBERRA','DARWIN', 'GOLD COAST', 
             'HAMILTON ISLAND', 'HOBART', 'KARRATHA', 'LAUNCESTON', 'MACKAY', 'MELBOURNE', 'PERTH', 
             'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
@@ -85,6 +85,9 @@ fig2.add_trace(go.Scatter(x= df2020['Pax_Total'],
                          text= df2020[df2020['AIRPORT'] == 'All Australian Airports']['Date']))
 st.plotly_chart(fig2)
 
+
+
+# fig pax growth
 df_month12=df.query('Month ==12')
 fig = go.Figure()
 for airport in airports:
@@ -94,8 +97,8 @@ for airport in airports:
             name= airport))
 
 fig.update_layout(title_text="Passenger growth Australian airports",
-xaxis_title='Years',
-yaxis_title='Total passengers')
+            xaxis_title='Years',
+            yaxis_title='Total passengers')
 
 dropdown_buttons= [{'label': 'All',
 'method': 'update',
@@ -188,52 +191,52 @@ dropdown_buttons= [{'label': 'All',
 ]
 
 fig.update_layout({
-'updatemenus':[{'type': 'dropdown',
-'x': 1.4, 'y': 1.27,
-'showactive': True, 'active': 0,
-'buttons': dropdown_buttons
-}]})
+            'updatemenus':[{'type': 'dropdown',
+            'x': 1.4, 'y': 1.27,
+            'showactive': True, 'active': 0,
+            'buttons': dropdown_buttons
+            }]})
 
 st.plotly_chart(fig)
 
 
+
+#fig 3 dom vs int pax
 df_month12=df.query('Month ==12')
-
-
 
 fig3 = go.Figure()
 fig3.add_trace(go.Bar(x=airports,
-y= df_month12.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
-name='International passengers',
-marker_color='rgb(55, 83, 109)'
-))
-fig.add_trace(go.Bar(x=airports,
-y= df_month12.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
-name ='Domestic passengers',
-marker_color='rgb(26, 118, 255)'
-))
-
-
+                y= df_month12.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
+                name='International passengers',
+                marker_color='rgb(55, 83, 109)'
+                ))
+fig3.add_trace(go.Bar(x=airports,
+                y= df_month12.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+                name ='Domestic passengers',
+                marker_color='rgb(26, 118, 255)'
+                ))
 
 fig3.update_layout(
-title='Domestic vs international passengers australian airports',
-xaxis_tickfont_size=14,
-yaxis=dict(
-title='passengers',
-titlefont_size=16,
-tickfont_size=14,
-),
-legend=dict(
-x=0,
-y=1.0,
-bgcolor='rgba(255, 255, 255, 0)',
-bordercolor='rgba(255, 255, 255, 0)'
-),
-barmode='group',
-bargap=0.15, # gap between bars of adjacent location coordinates.
-bargroupgap=0.1 # gap between bars of the same location coordinate.
-)
+            title='Domestic vs international passengers australian airports',
+            xaxis_tickfont_size=14,
+            yaxis=dict(
+            title='passengers',
+            titlefont_size=16,
+            tickfont_size=14,
+            ),
+            legend=dict(
+            x=0,
+            y=1.0,
+            bgcolor='rgba(255, 255, 255, 0)',
+            bordercolor='rgba(255, 255, 255, 0)'
+            ),
+            barmode='group',
+            bargap=0.15, # gap between bars of adjacent location coordinates.
+            bargroupgap=0.1 # gap between bars of the same location coordinate.
+            )
 st.plotly_chart(fig3)
+
+
 
 #chapter 4
 st.subheader('4. Forecasting Until 2030')
@@ -260,27 +263,4 @@ for percent_complete in range(100):
   my_bar.progress(percent_complete +1)
 
 st.balloons()
-'''
-
-'''
-url1= 'https://data.gov.au/data/dataset/cc5d888f-5850-47f3-815d-08289b22f5a8/resource/38bdc971-cb22-4894-b19a-814afc4e8164/download/mon_pax_web.csv'  
-url2= 'https://data.gov.au/data/dataset/cc5d888f-5850-47f3-815d-08289b22f5a8/resource/583be26d-59b9-4bcc-827d-4d9f7162fb04/download/mon_acm_web.csv'
-passengers= pd.read_csv(url1)
-aircraft= pd.read_csv(url2)
-
-df= passengers.merge(aircraft, on= ['AIRPORT', 'Year', 'Month'])
-df["Pax_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Pax_Total"].transform('cumsum')
-df["Acm_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Acm_Total"].transform('cumsum')
-
-st.subheader('Vliegvelden zonder vliegtuig bewegingen')
-st.dataframe(df.query('Acm_Total == 0'))
-
-df_new = df.drop(df[(df.AIRPORT == 'BALLINA') & (df.Acm_Total == 0)].index, inplace= True)
-
-st.subheader('Verhouding tussen passagiers en vliegbewegingen')
-fig= px.scatter(data_frame= df, title= 'Plot',
-               x= 'Pax_Total',
-               y= 'Acm_Total',
-               color= 'AIRPORT')
-st.plotly_chart(fig)
 '''
