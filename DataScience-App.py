@@ -116,11 +116,12 @@ aircraft = part1.append(part2)
 
 
 ##  Data prepratie
-df= passengers.merge(aircraft, on= ['AIRPORT', 'Year', 'Month'])
-df["Pax_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Pax_Total"].transform('cumsum')
-df["Acm_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Acm_Total"].transform('cumsum')
+#df= passengers.merge(aircraft, on= ['AIRPORT', 'Year', 'Month'])
+#df["Pax_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Pax_Total"].transform('cumsum')
+#df["Acm_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Acm_Total"].transform('cumsum')
 
-
+st.dataframe(passengers)
+st.dataframe(aircraft)
 
 st.dataframe(df)
 
