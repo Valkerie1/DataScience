@@ -164,6 +164,7 @@ for airport in airports:
                                  name= airport,
                                   text= df[df['AIRPORT'] == airport]['Date']
                                 ))
+'''
 # Add trace voor alle vliegvelden in 2020 met andere kleur
 df2020= df.query('AIRPORT== "All Australian Airports" & Year == 2020')
 airport = 'All Australian Airports'
@@ -172,7 +173,7 @@ fig2.add_trace(go.Scatter(x= df2020['Pax_Total'],
                          mode= 'markers',
                           name= "Corona",
                          text= df2020[df2020['AIRPORT'] == 'All Australian Airports']['Date']))
-
+'''
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
                     'x': 1.2, 'y': 1.15,
