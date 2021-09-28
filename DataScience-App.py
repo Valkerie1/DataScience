@@ -11,12 +11,7 @@ st.title('Top 20 Australische vliegvelden')
 st.text('test')
 
 
-with st.expander('Filter opties'):
-  st.wwrite("""
-  test
-  test
-  test
-  """)
+st.expander('test')
 
 '''  
 my_bar = st.progress(0)
