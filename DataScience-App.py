@@ -24,13 +24,11 @@ st.subheader('1. Introduction')
 st.write("""
 Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
 It is estimated that there are roughly 100.000 flights per day all around the world. 
-All these flights move an estimated 6 million passengers. 
-Most of the time, air travel is preferred for long distances or for fast travel times. 
+All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances. 
 Surely, a large country such as Australia must have a large number of daily flights. 
-The long distances, makes domestic flights a very suitable mode of transport, but how many flights are there? 
-and what is the estimated number of flights in 2030? This is important since, air transportation is at the heart of the Australian economic growth. 
-So a strong aviation industry is important for the Australian government as well as Australian citizens
-
+The long distances, makes domestic flights a very suitable mode of transport, but how many air traffic movements are there? 
+And what is the estimated air traffic in 2030? 
+Since, air transportation is at the heart of the Australian economic growth, this estimation is crucial to further support and strengthen the aviation industry and look at pathways for the longer-term.
 
 """)
 
@@ -61,7 +59,22 @@ st.write("""
 # chapter 3
 st.subheader('3. Exploratory Data Analysis')
 st.write("""
+As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
+The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
+This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
+However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
 
+In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
+Good to note is that the plot shows a flattening as passenger numbers rise. 
+The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
+A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
+Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
+For international flights, larger aircraft are deployed in contrast to domestic flights. 
+To see whether these airports accommodate international or domestic flight, the following visualisation is made.
+
+This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
+To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
+Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Sydny airport.
 """)
 dropdown_buttons2= [{'label': 'All', 
                     'method': 'update', 
