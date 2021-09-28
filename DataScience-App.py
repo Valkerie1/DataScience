@@ -9,11 +9,10 @@ import time
 
 st.title('Australian passenger information')
 
-with st.spinner('loading...'):
-  time.sleep(5)
   
 my_bar = st.progress(0)
 for percent_complete in range(100):
+  st.spinner('loading...')
   time.sleep(0.1)
   my_bar.progress(percent_complete +1)
 
