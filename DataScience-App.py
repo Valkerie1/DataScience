@@ -78,7 +78,7 @@ fig2.add_trace(go.Scatter(x= df2020['Pax_Total'],
                          mode= 'markers',
                           name= "Corona",
                          text= df2020[df2020['AIRPORT'] == 'All Australian Airports']['Date']))
-
+st.plotly_chart(fig2)
 
 #chapter 4
 st.subheader('4. Forecasting Until 2030')
