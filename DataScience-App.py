@@ -8,10 +8,13 @@ import plotly.graph_objects as go
 import time
 
 st.title('Top 20 Australische vliegvelden')
-st.text('test')
+st.write("""
+test
 
-with st.sidebar.beta_expander("test'):
-    st.info("This will work")
+test
+""")
+
+
 
 
 '''  
