@@ -326,7 +326,7 @@ fig3.update_layout(
               ),
             barmode='group',
             bargap=0.15, # gap between bars of adjacent location coordinates.
-            bargroupgap=0.4, # gap between bars of the same location coordinate.
+            bargroupgap=0.6, # gap between bars of the same location coordinate.
             width = 900,
             height = 620
             )
