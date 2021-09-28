@@ -313,6 +313,7 @@ fig3.add_trace(go.Bar(x=airports,
 
 fig3.update_layout(
             title='Domestic and international passengers per airport',
+            title={'x':0.5, 'xanchor':'center'},
             xaxis_tickfont_size=14,
             yaxis=dict(
               title='Total number of passengers',
@@ -329,8 +330,7 @@ fig3.update_layout(
             bargap=0.02, # gap between bars of adjacent location coordinates.
             bargroupgap=0.05, # gap between bars of the same location coordinate.
             width = 900,
-            height = 620,
-            title={'x':0.5, 'xanchor':'center'}
+            height = 620
             )
 
 st.plotly_chart(fig3)
