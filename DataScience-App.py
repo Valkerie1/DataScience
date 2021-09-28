@@ -88,10 +88,10 @@ st.plotly_chart(fig2)
 df_month12=df.query('Month ==12')
 fig = go.Figure()
 for airport in airports:
-fig.add_trace(go.Scatter(x= df_month12[df_month12['AIRPORT'] == airport]['Year'],
-y= df_month12[df_month12['AIRPORT'] == airport]['Pax_Total'],
-mode= 'lines+markers',
-name= airport))
+            fig.add_trace(go.Scatter(x= df_month12[df_month12['AIRPORT'] == airport]['Year'],
+            y= df_month12[df_month12['AIRPORT'] == airport]['Pax_Total'],
+            mode= 'lines+markers',
+            name= airport))
 
 fig.update_layout(title_text="Passenger growth Australian airports",
 xaxis_title='Years',
