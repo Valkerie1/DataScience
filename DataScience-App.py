@@ -8,7 +8,10 @@ import plotly.graph_objects as go
 
 st.title('Australian passenger information')
 
-add_selectbox = st.sidebar.selectbox('test',('1','2','3'))
+my_bar = st.progress(0)
+for percent_complete in range(100):
+  time.sleep(0.1)
+  my_bar.progress(percent_complete +1)
 
 
 '''
