@@ -19,6 +19,16 @@ st.write("""
 
 
 """)
+st.text("""
+- 1. Introductie
+- 2. Vliegveld overzicht
+- 3. Passagiers hoeveelheden
+- 4. Vliegtuig bewegingen
+- 5. Conclusie
+
+
+
+""")
 
 st.subheader('1 Introductie')
 st.write("""
