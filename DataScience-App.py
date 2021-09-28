@@ -23,6 +23,11 @@ st.text("""
 
 st.subheader('1. Introductie')
 st.write("""
+Vliegen, bijna iedereen heeft het wel eens gedaan. Het zorgt voor een snelle verbinding naar die belangrijke vergadering, of een relaxte reis naar je vakantie bestemming.
+Dagelijks vliegen er meer dan 100.000 vliegtuigen over de hele wereld. Deze vervoeren een geschatte 6 miljoen passagiers per dag.
+Australië is veruit het grootste land in Oceanië en een van de grootste landen ter wereld. Door de grootte zouden er dan veel vluchten moeten zijn in Australië, maar hoeveel vluchten zijn er?
+En hoeveel vluchten zijn er in 2030 verwacht?
+
 
 """)
 st.subheader('2. Vliegveld overzicht')
@@ -33,7 +38,7 @@ st.subheader('3. Passagiers aantallen')
 st.write("""
 
 """)
-st.subheader('4. Vlieg bewegingen')
+st.subheader('4. Vliegbewegingen')
 st.write("""
 
 """)
