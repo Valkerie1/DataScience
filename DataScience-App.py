@@ -189,13 +189,51 @@ dropdown_buttons= [{'label': 'All',
 
 fig.update_layout({
 'updatemenus':[{'type': 'dropdown',
-'x': 1, 'y': 1.5,
+'x': 1.1, 'y': 1.3,
 'showactive': True, 'active': 0,
 'buttons': dropdown_buttons
 }]})
 
 st.plotly_chart(fig)
 
+
+df_month12=df.query('Month ==12')
+
+
+
+fig3 = go.Figure()
+fig3.add_trace(go.Bar(x=airports,
+y= df_month12.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
+name='International passengers',
+marker_color='rgb(55, 83, 109)'
+))
+fig.add_trace(go.Bar(x=airports,
+y= df_month12.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+name ='Domestic passengers',
+marker_color='rgb(26, 118, 255)'
+))
+
+
+
+fig3.update_layout(
+title='Domestic vs international passengers australian airports',
+xaxis_tickfont_size=14,
+yaxis=dict(
+title='passengers',
+titlefont_size=16,
+tickfont_size=14,
+),
+legend=dict(
+x=0,
+y=1.0,
+bgcolor='rgba(255, 255, 255, 0)',
+bordercolor='rgba(255, 255, 255, 0)'
+),
+barmode='group',
+bargap=0.15, # gap between bars of adjacent location coordinates.
+bargroupgap=0.1 # gap between bars of the same location coordinate.
+)
+st.plotly_chart(fig3)
 
 #chapter 4
 st.subheader('4. Forecasting Until 2030')
