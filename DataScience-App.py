@@ -17,4 +17,14 @@ df= passengers.merge(aircraft, on= ['AIRPORT', 'Year', 'Month'])
 df["Pax_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Pax_Total"].transform('cumsum')
 df["Acm_Total_Year"]= df.groupby(["AIRPORT", "Year"])["Acm_Total"].transform('cumsum')
 
-st.dataframe(df)
+st.subtitle('Vliegvelden zonder vliegtuig bewegingen')
+st.dataframe(df.query('Acm_Total == 0'))
+
+df_new = df.drop(df[(df.AIRPORT == 'BALLINA') & (df.Acm_Total == 0)].index, inplace= True)
+
+st.sub_title('Verhouding tussen passagiers en vliegbewegingen')
+fig= px.scatter(data_frame= df, title= 'Plot',
+               x= 'Pax_Total',
+               y= 'Acm_Total',
+               color= 'AIRPORT')
+st.plotly_chart(fig)
