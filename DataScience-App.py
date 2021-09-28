@@ -34,4 +34,4 @@ fig.update_layout({'xaxis':{'rangeselector':{'buttons':time_buttons}}})
 fig.update_xaxes(title_text='Date')
 fig.update_yaxes(title_text='Total number of passengers in millions')
 
-fig.show()
+st.plotly_chart(fig)
