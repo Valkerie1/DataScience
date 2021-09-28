@@ -274,7 +274,7 @@ for airport in airports:
 
 fig.update_layout(title_text="Passenger growth Australian airports",
             xaxis_title='Years',
-            yaxis_title='Total passengers', width=900, height=700)
+            yaxis_title='Total passengers', width=900, height=500)
 
 
 
