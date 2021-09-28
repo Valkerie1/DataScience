@@ -9,16 +9,6 @@ import time
 
 st.title('Top 20 Australische vliegvelden')
 st.subheader('Inhoudsopgaven')
-st.write("""
-- 1. Introductie
-- 2. Vliegveld overzicht
-- 3. Passagiers hoeveelheden
-- 4. Vliegtuig bewegingen
-- 5. Conclusie
-
-
-
-""")
 st.text("""
 - 1. Introductie
 - 2. Vliegveld overzicht
