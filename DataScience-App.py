@@ -165,9 +165,13 @@ for airport in airports:
                                   text= df[df['AIRPORT'] == airport]['Date']
                                 ))
 
+fig2.update_layout(title_text="Passenger growth Australian airports",
+            xaxis_title='Years',
+            yaxis_title='Total passengers', width=950, height=620)
+
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
-                    'x': 1.5, 'y': 1.15,
+                    'x': 1.2, 'y': 1.2,
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
@@ -280,7 +284,7 @@ fig.update_layout(title_text="Passenger growth Australian airports",
 
 fig.update_layout({
             'updatemenus':[{'type': 'dropdown',
-            'x': 1.4, 'y': 1.27,
+            'x': 1.2, 'y': 1.2,
             'showactive': True, 'active': 0,
             'buttons': dropdown_buttons
             }]})
