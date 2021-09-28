@@ -11,7 +11,7 @@ st.title('Top 20 Australische vliegvelden')
 st.text('test')
 
 
-st.expander('Filter opties'):
+with st.expander('Filter opties'):
   st.wwrite("""
   test
   test
