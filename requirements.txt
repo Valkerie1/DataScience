@@ -1,3 +1,5 @@
 streamlit==0.68.1
-pandas==0.25.3
-numpy==1.18.1
+pandas==1.2.4
+numpy==1.20.1
+json5==0.9.5
+requests==2.25.1
