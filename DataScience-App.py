@@ -294,7 +294,7 @@ fig.update_layout({
 st.plotly_chart(fig)
 
 
-
+'''
 #fig 3 dom vs int pax
 df_month12=df.query('Month ==12')
 
@@ -322,7 +322,7 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             title={'x':0.5, 'xanchor':'center'})
 
 st.plotly_chart(fig3)
-
+'''
 
 
 #chapter 4
