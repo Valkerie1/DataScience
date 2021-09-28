@@ -225,7 +225,7 @@ fig3.update_layout(
             tickfont_size=14,
             ),
             legend=dict(
-            x=1.1,
+            x=0.7,
             y=1.0,
             bgcolor='rgba(255, 255, 255, 0)',
             bordercolor='rgba(255, 255, 255, 0)'
