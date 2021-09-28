@@ -321,7 +321,7 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             title={'x':0.5, 'xanchor':'center'})
 
 st.plotly_chart(fig3)
-'''
+
 
 
 #chapter 4
