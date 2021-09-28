@@ -7,46 +7,50 @@ import plotly.express as px
 import plotly.graph_objects as go
 import time
 
-st.title('Groei voorspelling Australische vliegverkeer tot 2030')
-st.subheader('Inhoudsopgaven')
+st.title('Australian Air Traffic forecast for 2030')
+st.subheader('Table of contents')
 st.text("""
-- 1. Introductie
-- 2. Vliegveld overzicht
-- 3. Passagiers aantallen
-- 4. Vlieg bewegingen
-- 5. Voorspelling tot 2030
-- 6. Conclusie
+- 1. Introduction
+- 2. Australian airports
+- 3. Passenger numbers
+- 4. Air traffic movements
+- 5. Forecasting until 2030
+- 6. Conclusion
 
 
 
 """)
 
-st.subheader('1. Introductie')
+st.subheader('1. Introduction')
 st.write("""
 Vliegen, bijna iedereen heeft het wel eens gedaan. Het zorgt voor een snelle verbinding naar die belangrijke vergadering, of een relaxte reis naar je vakantie bestemming.
 Dagelijks vliegen er meer dan 100.000 vliegtuigen over de hele wereld. Deze vervoeren een geschatte 6 miljoen passagiers per dag.
 Australië is veruit het grootste land in Oceanië en een van de grootste landen ter wereld. Door de grootte zouden er dan veel vluchten moeten zijn in Australië, maar hoeveel vluchten zijn er?
 En hoeveel vluchten zijn er in 2030 verwacht?
 
+Flying, almost everyone has done it. Flying ensures a fast connection to the other side of the world for that import meeting, or just a relaxed flight to the holiday destination.
+It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances or for fast travel times.
+Surely, a large country such as Australia must have a large number of daily flights. The long distances, makes domestic flights a very suitable mode of transport, but how many flights are there? and what is the estimated number of flights in 2030?
+This is important since, air transportation is at the heart of the Australian economic growth. So a strong aviation industry is important for the Australian government as well as Australian citizens
 
 """)
-st.subheader('2. Vliegveld overzicht')
+st.subheader('2. Australian airports')
 st.write("""
 
 """)
-st.subheader('3. Passagiers aantallen')
+st.subheader('3. Passenger numbers')
 st.write("""
 
 """)
-st.subheader('4. Vliegbewegingen')
+st.subheader('4. Air traffic movements')
 st.write("""
 
 """)
-st.subheader('5. Voorspelling tot 2030')
+st.subheader('5. Forecasting until 2030')
 st.write("""
 
 """)
-st.subheader('6. Conclusie')
+st.subheader('6. Conclusion')
 st.write("""
 
 """)
