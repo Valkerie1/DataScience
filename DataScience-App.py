@@ -569,6 +569,7 @@ st.subheader('5. Conclusion')
 st.write("""
 
 """)
+All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
 fig5 = px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total')
 st.plotly_chart(fig5)
