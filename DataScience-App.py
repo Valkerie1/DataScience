@@ -699,10 +699,13 @@ st.write("""
 
 """)
 
-st.sidebar.radio('Click here')
-#if easteregg:
-#            st.text('Congrat, you found the easteregg')
-#            st.balloons()
+easteregg = st.sidebar.radio('Did you enjoy?', 
+                            ['Yes!', 'No')
+if easteregg=='Yes!':
+            st.text('Nice!')
+            st.balloons()
+
+                             
 
 
 
