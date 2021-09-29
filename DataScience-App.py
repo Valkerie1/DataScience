@@ -29,13 +29,7 @@ st.subheader('1. Introduction')
 st.write("""
 Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
 
-It is estimated that there are roughly 100.000 flights per day all around the world. 
-All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances. 
-Surely, a large country such as Australia must have a large number of daily flights. 
-The long distances, makes domestic flights a very suitable mode of transport, but how many air traffic movements are there? 
-And what is the estimated air traffic in 2030? 
-Since, air transportation is at the heart of the Australian economic growth, this estimation is crucial to further support and strengthen the aviation industry and look at pathways for the longer-term.
-
+It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the covid-19 pandemic. How is the Australian aviation industry going to recover from this? And what is the estimated air traffic in 2030? Since, air transportation is at the heart of the Australian economic growth, this estimation is crucial to further support and strengthen the aviation industry and look at pathways for the longer-term
 """)
 
 # import data
@@ -558,9 +552,9 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
 
 
 st.write("""
-This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
-To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
-Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Brisbane airport.
+This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are possibly repatriation flights.
+
+Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
 """)
 
 st.plotly_chart(fig3)
@@ -635,27 +629,3 @@ fig7.update_layout(title_text="Total number of acm over the years",
             yaxis_title='Total number of acm', width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
 st.plotly_chart(fig7)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''  
-my_bar = st.progress(0)
-for percent_complete in range(100):
-  time.sleep(0.1)
-  my_bar.progress(percent_complete +1)
-
-st.balloons()
-'''
-
