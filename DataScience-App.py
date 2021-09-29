@@ -702,7 +702,6 @@ st.write("""
 easteregg = st.radio('Finished?', 
                             ['No','Yes!'])
 if easteregg=='Yes!':
-            st.text('Nice!')
             st.balloons()
 
 
