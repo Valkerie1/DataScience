@@ -74,7 +74,7 @@ To see whether these airports accommodate international or domestic flight, the 
 
 This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
 To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
-Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Sydny airport.
+Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Brisbane airport.
 """)
 dropdown_buttons2= [{'label': 'All', 
                     'method': 'update', 
