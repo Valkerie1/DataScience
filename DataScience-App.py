@@ -480,7 +480,6 @@ airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBE
             'ROCKHAMPTON', 'MELBOURNE', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
 
 fig2= go.Figure()
-fig2= go.Figure()
 for airport in airports:
         fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
                                  y= df[df['AIRPORT'] == airport]['Acm_Total'],
@@ -497,7 +496,7 @@ for airport in airports:
                               name= "Corona",
                               text= df2020[df2020['AIRPORT'] == airport]['Date']))
 
-
+'''
 for airport in airports:
         fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
                                  y= df[df['AIRPORT'] == airport]['Acm_Total'],
@@ -505,7 +504,7 @@ for airport in airports:
                                  name= airport,
                                   text= df[df['AIRPORT'] == airport]['Date']
                                 ))
-
+'''
 fig2.update_layout(title_text="Passengers per air traffic movement",
             xaxis_title='Total number of passengers',
             yaxis_title='Air traffic movements', width=950, height=620,
