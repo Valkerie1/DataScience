@@ -574,7 +574,7 @@ st.write("""
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
 #pax graph
-fig5 = px.scatter(data_frame= All, x='Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red', range_x=['1985-01-01','2030-01-01']
+fig5 = px.scatter(data_frame= All, x='Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red', range_x=['1985-01-01','2030-01-01'])
 
 fig5.update_layout(title_text="Total number of passengers over the years",
             xaxis_title='Year',
