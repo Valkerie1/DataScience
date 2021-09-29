@@ -570,7 +570,7 @@ st.write("""
 
 """)
 
-
+fig5= px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline= 'ols')
 
 
 
