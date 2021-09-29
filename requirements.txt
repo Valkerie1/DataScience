@@ -6,3 +6,6 @@ requests==2.25.1
 plotly==5.3.1
 statsmodels==0.12.2
 scikit-learn==0.24.1
+dash==2.0.0
+dash-core-components==2.0.0
+dash-html-components==2.0.0
