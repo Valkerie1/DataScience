@@ -691,8 +691,7 @@ figpaxall = px.scatter(
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total number of passengers",
-                        "AIRPORT":"Airport"},           
+                        labels={"Pax_Total_Year":"Total number of passengers"},           
                         title='Total number of passengers between 1985-2020',                    
                         template='ggplot2', 
                         height= 650,
@@ -713,7 +712,7 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
 elif paxacmoption == 'Number of passengers until 2 million':
             st.plotly_chart(figpax2)
             
-st.dataframe(dff)
+
 
 
 
