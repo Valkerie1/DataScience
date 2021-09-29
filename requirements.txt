@@ -4,3 +4,4 @@ numpy==1.20.1
 json5==0.9.5
 requests==2.25.1
 plotly==5.3.1
+statsmodels==0.12.2
