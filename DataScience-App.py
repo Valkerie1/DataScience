@@ -700,7 +700,7 @@ st.write("""
 """)
 
 easteregg = st.sidebar.radio('Did you enjoy?', 
-                            ['Yes!', 'No')
+                            ['Yes!', 'No'])
 if easteregg=='Yes!':
             st.text('Nice!')
             st.balloons()
