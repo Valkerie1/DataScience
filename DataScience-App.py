@@ -620,8 +620,8 @@ dff = df.drop(index , inplace=True)
 # airport >2m
 dff = df[(df['Month']== 12)]
 dff = dff[(dff['Pax_Total_Year'] >= 2000000)]
-st.dataframe(dff)
-'''
+
+
 figpax1 = px.scatter(
                         data_frame=dff,
                         x="Year",
@@ -643,7 +643,7 @@ figpax1 = px.scatter(
 figpax1["layout"].pop("updatemenus")
 figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax1.update_layout(uniformtext_minsize=12)
-
+'''
 # airport <2m
 dff = df[(df['Month']== 12)]
 dff = dff[(dff['Pax_Total_Year'] <= 2000000)]
