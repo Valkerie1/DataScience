@@ -59,138 +59,7 @@ st.write("""
 
 # chapter 3
 st.subheader('3. Exploratory Data Analysis')
-st.write("""
-As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
-The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
-This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
-However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
-
-""")
-dropdown_buttons2= [{'label': 'All', 
-                    'method': 'update', 
-                    'args': [{'visible': [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]}, 
-                             {'title': 'All Airports'}]},
-                  {'label': 'Adelaide', 
-                   'method': 'update', 
-                   'args': [{'visible': [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Adelaide'}]},
-                  {'label': 'Alce Springs',
-                   'method': 'update', 
-                   'args': [{'visible': [False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Alice Springs'}]},
-                  {'label': 'Ballina', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Ballina'}]},
-                  {'label': 'Brisbane', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Brisbane'}]},
-                  {'label': 'Cairns', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Cairns'}]},
-                  {'label': 'Canberra', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Canberra'}]},
-                  {'label': 'Darwin', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Darwin'}]},
-                  {'label': 'Gold Coast', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Gold Coast'}]},
-                  {'label': 'Hamilton Island', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Hamilton Island'}]},
-                  {'label': 'Hobart', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Hobart'}]},
-                   {'label': 'Karratha', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Karratha'}]},
-                  {'label': 'Launceston', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Launceston'}]},
-                  {'label': 'Mackay', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False]}, 
-                            {'title': 'Mackay'}]},
-                   {'label': 'Melbourne', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]}, 
-                            {'title': 'Melbourne'}]},
-                   {'label': 'Perth', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False]}, 
-                            {'title': 'Perth'}]},
-                   {'label': 'Rockhampton', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False]}, 
-                            {'title': 'Rockhampton'}]},
-                   {'label': 'Sunshine Coast', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False]}, 
-                            {'title': 'Sunshine Coast'}]},
-                   {'label': 'Sydney', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False]}, 
-                            {'title': 'Sydney'}]},
-                   {'label': 'Townsville', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False]}, 
-                            {'title': 'Townsville'}]},
-                   {'label': 'Newcastle', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False]}, 
-                            {'title': 'Newcastle'}]},
-                   {'label': 'Ayers Rock', 
-                   'method': 'update', 
-                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True]}, 
-                            {'title': 'Ayers Rock'}]},
-                  ]
-# fig 2 pax vs acm
-airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBERRA','DARWIN', 'GOLD COAST', 
-            'HAMILTON ISLAND', 'HOBART', 'KARRATHA', 'LAUNCESTON', 'MACKAY', 'MELBOURNE', 'PERTH', 
-            'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
-fig2= go.Figure()
-for airport in airports:
-        fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
-                                 y= df[df['AIRPORT'] == airport]['Acm_Total'],
-                                 mode= 'markers',
-                                 name= airport,
-                                  text= df[df['AIRPORT'] == airport]['Date']
-                                ))
-
-fig2.update_layout(title_text="Passengers per air traffic movement",
-            xaxis_title='Total number of passengers',
-            yaxis_title='Air traffic movements', width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
-
-fig2.update_layout({
-    'updatemenus':[{'type': 'dropdown',
-                    'x': 1.24, 'y': 1.1,
-                    'showactive': True, 'active': 0,
-                    'buttons': dropdown_buttons2
-            }]})
-
-st.write("""
-In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
-Good to note is that the plot shows a flattening as passenger numbers rise. 
-The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
-A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
-Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
-For international flights, larger aircraft are deployed in contrast to domestic flights. 
-To see whether these airports accommodate international or domestic flight, the following visualisation is made.
-""")
-st.plotly_chart(fig2)
-
+# fig pax growth
 dropdown_buttons= [{'label': 'All',
             'method': 'update',
             'args': [{'visible': [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]},
@@ -281,7 +150,6 @@ dropdown_buttons= [{'label': 'All',
                         {'title': 'Ayers Rock'}]},
 ]
 
-# fig pax growth
 df_month12=df.query('Month ==12')
 fig = go.Figure()
 for airport in airports:
@@ -304,8 +172,140 @@ fig.update_layout({
             'buttons': dropdown_buttons
             }]})
 
+st.write("""
+As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
+The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
+This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
+However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
+
+""")
 st.plotly_chart(fig)
 
+# fig 2 pax vs acm
+dropdown_buttons2= [{'label': 'All', 
+                    'method': 'update', 
+                    'args': [{'visible': [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]}, 
+                             {'title': 'All Airports'}]},
+                  {'label': 'Adelaide', 
+                   'method': 'update', 
+                   'args': [{'visible': [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Adelaide'}]},
+                  {'label': 'Alce Springs',
+                   'method': 'update', 
+                   'args': [{'visible': [False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Alice Springs'}]},
+                  {'label': 'Ballina', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Ballina'}]},
+                  {'label': 'Brisbane', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Brisbane'}]},
+                  {'label': 'Cairns', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Cairns'}]},
+                  {'label': 'Canberra', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Canberra'}]},
+                  {'label': 'Darwin', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Darwin'}]},
+                  {'label': 'Gold Coast', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Gold Coast'}]},
+                  {'label': 'Hamilton Island', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Hamilton Island'}]},
+                  {'label': 'Hobart', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Hobart'}]},
+                   {'label': 'Karratha', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Karratha'}]},
+                  {'label': 'Launceston', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Launceston'}]},
+                  {'label': 'Mackay', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False, False]}, 
+                            {'title': 'Mackay'}]},
+                   {'label': 'Melbourne', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False, False]}, 
+                            {'title': 'Melbourne'}]},
+                   {'label': 'Perth', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False, False]}, 
+                            {'title': 'Perth'}]},
+                   {'label': 'Rockhampton', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False, False]}, 
+                            {'title': 'Rockhampton'}]},
+                   {'label': 'Sunshine Coast', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False, False]}, 
+                            {'title': 'Sunshine Coast'}]},
+                   {'label': 'Sydney', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False, False]}, 
+                            {'title': 'Sydney'}]},
+                   {'label': 'Townsville', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False, False]}, 
+                            {'title': 'Townsville'}]},
+                   {'label': 'Newcastle', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, False]}, 
+                            {'title': 'Newcastle'}]},
+                   {'label': 'Ayers Rock', 
+                   'method': 'update', 
+                   'args': [{'visible': [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True]}, 
+                            {'title': 'Ayers Rock'}]},
+                  ]
+
+airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBERRA','DARWIN', 'GOLD COAST', 
+            'HAMILTON ISLAND', 'HOBART', 'KARRATHA', 'LAUNCESTON', 'MACKAY', 'MELBOURNE', 'PERTH', 
+            'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
+fig2= go.Figure()
+for airport in airports:
+        fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
+                                 y= df[df['AIRPORT'] == airport]['Acm_Total'],
+                                 mode= 'markers',
+                                 name= airport,
+                                  text= df[df['AIRPORT'] == airport]['Date']
+                                ))
+
+fig2.update_layout(title_text="Passengers per air traffic movement",
+            xaxis_title='Total number of passengers',
+            yaxis_title='Air traffic movements', width=950, height=620,
+            title={'x':0.5, 'xanchor':'center'})
+
+fig2.update_layout({
+    'updatemenus':[{'type': 'dropdown',
+                    'x': 1.24, 'y': 1.1,
+                    'showactive': True, 'active': 0,
+                    'buttons': dropdown_buttons2
+            }]})
+
+st.write("""
+In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
+Good to note is that the plot shows a flattening as passenger numbers rise. 
+The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
+A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
+Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
+For international flights, larger aircraft are deployed in contrast to domestic flights. 
+To see whether these airports accommodate international or domestic flight, the following visualisation is made.
+""")
+st.plotly_chart(fig2)
 
 
 #fig 3 dom vs int pax
