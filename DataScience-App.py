@@ -655,7 +655,7 @@ figpax2 = px.scatter(
                         y="Pax_Total_Year",
                         animation_frame="Year",
                         animation_group="AIRPORT",
-                        range_x=[1984,2022], 
+                        range_x=[1984,2023], 
                         range_y=[0,2100000],
                         color="AIRPORT",               
                         opacity=0.9,                  
@@ -672,8 +672,10 @@ figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax2.update_layout(uniformtext_minsize=6)
 st.plotly_chart(figpax2)
 
+# airport all
 dff = df[(df['Month']== 12)]
-dff = dff['Pax_Total_Year']
+dff = dff[['Pax_Total_Year']]
+
 figpaxall = px.scatter(
                         data_frame=dff,
                         x="Year",
@@ -681,21 +683,22 @@ figpaxall = px.scatter(
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2023], 
-                        range_y=[0,49000000],
+                        range_y=[0,4900000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
                         labels={"Pax_Total_Year":"Total Pax per Year",
                         "AIRPORT":"Airport"},           
-                        title='Total Pax 1985-2020 for Airports > 2M Pax per year',                    
-                        template='ggplot2',   
-                        )
+                        title='Total Pax 1985-2020 for Airports < 2M Pax per year',                    
+                        template='ggplot2', 
+                        height= 1000,
+)
 figpaxall["layout"].pop("updatemenus")
 figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-figpaxall.update_layout(uniformtext_minsize=12)
+figpaxall.update_layout(uniformtext_minsize=6)
 st.plotly_chart(figpaxall)
-'''
+
 paxacmoption = st.selectbox('Select the graph to dislplay',
                            ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
 
@@ -705,7 +708,7 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
             st.plotly_chart(figpax2)
 elif paxacmoption == 'Number of passengers until 2 million':
             st.plotly_chart(figpax1)
-'''
+
 
 
 
