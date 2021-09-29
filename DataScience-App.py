@@ -600,7 +600,7 @@ else:
 option = st.radio('Select a graph:',
                  ['Passenger graph','Acm graph'])
 
-if check:
+if option:
             st.plotly_chart(fig5)
 else:
             st.plotly_chart(fig6)
