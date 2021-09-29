@@ -589,13 +589,23 @@ fig6.update_layout(title_text="Total number of acm over the years",
             title={'x':0.5, 'xanchor':'center'})
 
 
-
+'''
 check = st.checkbox('Select graph')
 
 if check:
             st.plotly_chart(fig5)
 else:
             st.plotly_chart(fig6)
+'''            
+option = st.radio('Select a graph:',
+                 ['Passenger graph','Acm graph'])
+
+if check:
+            st.plotly_chart(fig5)
+else:
+            st.plotly_chart(fig6)
+            
+
             
 
 '''  
