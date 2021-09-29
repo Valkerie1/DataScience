@@ -620,12 +620,3 @@ regressor = LinearRegression()
 regressor.fit(X, y)
 x_new = np.arange(36,50).reshape((-1,1))
 y_new = regressor.predict(x_new)
-
-
-fig7 = px.scatter(y_new, x_new)
-
-fig7.update_layout(title_text="Total number of acm over the years",
-            xaxis_title='Year',
-            yaxis_title='Total number of acm', width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
-st.plotly_chart(fig7)
