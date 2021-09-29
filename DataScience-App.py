@@ -521,7 +521,7 @@ To see whether these airports accommodate international or domestic flight, the 
 """)
 st.plotly_chart(fig2)
 
-
+'''
 #fig 3 dom vs int pax
 df_month12=df.query('Month ==12')
 
@@ -546,6 +546,33 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             bargroupgap=0.05,
             width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
+'''
+df_2020=df.query('Month ==12 & Year ==2020')
+fig3 = go.Figure()
+
+fig3.update_layout(yaxis_type="log")
+
+fig3.add_trace(go.Bar(x=airports,
+                y= df_2020.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
+                name='International passengers',
+                marker_color='rgb(55, 83, 109)'
+                ))
+fig3.add_trace(go.Bar(x=airports,
+                y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+                name ='Domestic passengers',
+                marker_color='rgb(26, 118, 255)'
+                ))
+
+fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+            xaxis_tickfont_size=14,
+            yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
+            legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
+            barmode='group',
+            bargap=0.02,
+            bargroupgap=0.05,
+            width=950, height=620,
+            title={'x':0.5, 'xanchor':'center'})
+)
 
 st.write("""
 This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
@@ -606,6 +633,7 @@ elif option=='Total number of acm over the years':
             for percent_complete in range(100):
                         time.sleep(0.1)
                         my_bar.progress(percent_complete +1)
+            st.balloons()
             st.plotly_chart(fig6)
             
 
