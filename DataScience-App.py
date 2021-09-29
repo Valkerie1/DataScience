@@ -153,10 +153,11 @@ airports = ['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBE
             'ROCKHAMPTON', 'SUNSHINE COAST', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']
 
 df_month12=df.query('Month ==12')
+
 fig = go.Figure()
 for airport in airports:
             fig.add_trace(go.Scatter(x= df_month12[df_month12['AIRPORT'] == airport]['Year'],
-            y= df_month12[df_month12['AIRPORT'] == airport]['Pax_Total'],
+            y= df_month12[df_month12['AIRPORT'] == airport]['Pax_Total_Year'],
             mode= 'lines+markers',
             name= airport))
 
