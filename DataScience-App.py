@@ -643,6 +643,7 @@ figpax1 = px.scatter(
 figpax1["layout"].pop("updatemenus")
 figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax1.update_layout(uniformtext_minsize=12)
+st.plotly_chart(figpax1)
 '''
 # airport <2m
 dff = df[(df['Month']== 12)]
