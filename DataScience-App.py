@@ -23,6 +23,7 @@ st.text("""
 st.subheader('1. Introduction')
 st.write("""
 Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
+
 It is estimated that there are roughly 100.000 flights per day all around the world. 
 All these flights move an estimated 6 million passengers. Most of the time, air travel is preferred for long distances. 
 Surely, a large country such as Australia must have a large number of daily flights. 
