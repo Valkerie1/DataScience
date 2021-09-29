@@ -671,7 +671,7 @@ figpax2["layout"].pop("updatemenus")
 figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax2.update_layout(uniformtext_minsize=6)
 st.plotly_chart(figpax2)
-'''
+
 dff = df[(df['Month']== 12)]
 dff = dff['Pax_Total_Year']
 figpaxall = px.scatter(
@@ -694,8 +694,8 @@ figpaxall = px.scatter(
 figpaxall["layout"].pop("updatemenus")
 figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpaxall.update_layout(uniformtext_minsize=12)
-
-
+st.plotly_chart(figpaxall)
+'''
 paxacmoption = st.selectbox('Select the graph to dislplay',
                            ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
 
