@@ -189,6 +189,16 @@ fig2.update_layout({
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
+
+st.write("""
+In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
+Good to note is that the plot shows a flattening as passenger numbers rise. 
+The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
+A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
+Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
+For international flights, larger aircraft are deployed in contrast to domestic flights. 
+To see whether these airports accommodate international or domestic flight, the following visualisation is made.
+""")
 st.plotly_chart(fig2)
 
 dropdown_buttons= [{'label': 'All',
