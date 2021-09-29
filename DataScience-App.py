@@ -634,9 +634,9 @@ figpax1 = px.scatter(
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
-                        #labels={"Pax_Total_Year":"Total Pax per Year",
+                        #labels={"Pax_Total_Year":"Total number of passengers",
                         #"AIRPORT":"Airport"},           
-                        title='Total Pax 1985-2020 for Airports > 2M Pax per year',                    
+                        title='Total number of passengers between 1985-2020 greater than 2 million',                    
                         template='ggplot2',   
                         trendline='ols'
 )
@@ -661,9 +661,9 @@ figpax2 = px.scatter(
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total Pax per Year",
+                        labels={"Pax_Total_Year":"Total number of passengers",
                         "AIRPORT":"Airport"},           
-                        title='Total Pax 1985-2020 for Airports < 2M Pax per year',                    
+                        title='Total number of passengers between 1985-2020 lower than 2 million',                    
                         template='ggplot2', 
                         height= 1000,
 )
@@ -688,9 +688,9 @@ figpaxall = px.scatter(
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total Pax per Year",
-                        "AIRPORT":"Airport"},           
-                        title='Total Pax 1985-2020 for Airports < 2M Pax per year',                    
+                        labels={"Pax_Total_Year":"Total number of passengers",
+                        "AIRPORT":airports},           
+                        title='Total number of passengers between 1985-2020',                    
                         template='ggplot2', 
                         height= 1000,
 )
@@ -699,7 +699,7 @@ figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpaxall.update_layout(uniformtext_minsize=6)
 
 
-paxacmoption = st.selectbox('Select the graph to dislplay',
+paxacmoption = st.selectbox('Select the graph to display',
                            ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
 
 if paxacmoption == 'Number of passengers':
