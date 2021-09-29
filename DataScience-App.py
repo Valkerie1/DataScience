@@ -592,9 +592,10 @@ fig6.update_layout(title_text="Total number of acm over the years",
         
 option = st.radio('Select a graph:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
-my_bar = st.progress(0)
+
 
 if option=='Passenger graph':
+            my_bar = st.progress(0)
             for percent_complete in range(100):
                         time.sleep(0.1)
                         my_bar.progress(percent_complete +1)
