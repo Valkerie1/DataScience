@@ -619,117 +619,25 @@ st.write("""
 
 """)
 
+df['years_since'] = (df.Date - pd.to_datetime('1985-01-01') ).astype('timedelta64[Y]')
+X = np.array(df['years_since']).reshape((-1,1))
+y = np.array(df['Pax_Total'])
+regressor = LinearRegression()
+regressor.fit(X, y)
+x_new = np.arange(36,50).reshape((-1,1))
+y_new = regressor.predict(x_new)
 
 
-app = dash.Dash(__name__)
+fig7 = px.scatter(x_new, y_new)
 
-app.layout = html.Div([
-
-    html.Div([
-        dcc.Graph(id='Year_graph')
-    ]),
-
-    html.Div([
-        html.Label(['Total Pax per year 1985-2020'],
-                    style={'font-weight': 'bold'}),
-        html.P(),
-        dcc.RangeSlider(
-            id='year-range-slider', # Naam toekennen aan slider
-            marks={
-                1985: '1985',     # key=Positie, value= Wat er zichtbaar is
-                1990: '1990',
-                1995: '1995',
-                2000: '2000',
-                2005: '2005',
-                2010: '2010',
-                2015: '2015',
-                2020: {'label': '2020', 'style': {'color':'orange', 'font-weight':'bold'}},
-            },
-            step=1,                # aantal stappen tussen de jaartallen
-            min=1985,
-            max=2020,
-            value=[2000,2015],     # Begin- en eindwaarde van de slider
-            dots=True,             # True of False. Voegt wel of geen puntjes toe tussen de jaartallen 
-            allowCross=False,      # True of False - Optie om met de linker hendel over de rechter hendel heen te gaan 
-            disabled=False,        # True of False - Optie om de slider te bevriezen voor andere gebruikers
-            pushable=1,            # Optie om altijd een x aantal jaren zichtbaar te hebben. =1 is altijd 1 jaar zichtbaar.
-            updatemode='mouseup',  # 'mouseup' of 'drag' - Optie om de grafiek realtime te update of pas als de muisknop is losgelaten.
-            included=True,         # True of False - Optie om de balk tussen de jaartallen ook zichtbaar te maken of niet 
-            vertical=False,        # True of False - Horizontale (True) of Verticale (False) weergave van de slider
-            verticalHeight=900,    # Hoogte van de slider in pixels als slider horizontaal wordt weergegeven.
-            tooltip={'always visible':True,  # Optie om het huidige jaartal wel/niet weer te geven in de slider 
-                     'placement':'bottom'},   # Positie van het jaartal 
-            ),
-    ]),
-
-])
-
-@app.callback(
-    Output('Year_graph','figure'),
-    [Input('year-range-slider','value')]
-)
-
-def add_slider(years_chosen):
-
-    dff = df[(df['Year']>=years_chosen[0])&(df['Year']<=years_chosen[1])]
-    dff = dff[(dff['Month']==12)]
-    dff = dff[(dff['AIRPORT']=='SYDNEY') | (dff['AIRPORT']=='MELBOURNE')]
-
-    fig = px.bar(
-                        data_frame=dff,
-                        x="Year",
-                        y="Pax_Total_Year",
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        barmode='group',
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total Pax per Year",
-                        "AIRPORT":"Airport"},           
-                        title='Total Pax per year 1985-2020', 
-                        width=1400,                   
-                        height=720,                   
-                        template='ggplot2',                                             
-)
-    fig.update_traces(texttemplate='%{text:.3s}', textposition='outside')
-    fig.update_layout(uniformtext_minsize=8)
-                           
-    return (fig)
-
-
-if __name__ == '__main__':
-    app.run_server(debug=False)
-
-@app.callback(Output('graph', 'figure'),
-              [Input('Pax_Dom_Int', 'value'),
-               Input('Acm_Dom_Int', 'value')])
-
-def update_figure(Pax_Dom_Int,Acm_Dom_Int):
-    dff = df[(df[['Dom_Pax_Total', 'Int_Pax_Total']].isin(Pax_Dom_Int)) &
-                (df[['Dom_Acm_Total', 'Int_Acm_Total']].isin(Acm_Dom_Int))]
-
-    # Create figure
-    fig7 = px.scatter(
-                        data_frame=dff,
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        barmode='group',
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total Pax per Year",
-                        "AIRPORT":"Airport"},           
-                        title='Total Pax per year 1985-2020', 
-                        width=1400,                   
-                        height=720,                   
-                        template='ggplot2',                                             
-)
-    return fig7
-
-if __name__ == '__main__':
-    
-    app.run_server(debug=False)
-
+fig7.update_layout(title_text="Total number of acm over the years",
+            xaxis_title='Year',
+            yaxis_title='Total number of acm', width=950, height=620,
+            title={'x':0.5, 'xanchor':'center'})
 st.plotly_chart(fig7)
+
+
+
 
 
 
