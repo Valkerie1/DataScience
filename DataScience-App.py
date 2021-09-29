@@ -496,15 +496,7 @@ for airport in airports:
                               name= "Corona",
                               text= df2020[df2020['AIRPORT'] == airport]['Date']))
 
-'''
-for airport in airports:
-        fig2.add_trace(go.Scatter(x= df[df['AIRPORT'] == airport]['Pax_Total'],
-                                 y= df[df['AIRPORT'] == airport]['Acm_Total'],
-                                 mode= 'markers',
-                                 name= airport,
-                                  text= df[df['AIRPORT'] == airport]['Date']
-                                ))
-'''
+
 fig2.update_layout(title_text="Passengers per air traffic movement",
             xaxis_title='Total number of passengers',
             yaxis_title='Air traffic movements', width=950, height=620,
@@ -513,10 +505,10 @@ fig2.update_layout(title_text="Passengers per air traffic movement",
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
                     'x': 1.24, 'y': 1.1,
-                    'showactive': True, 'active': 0,
+                    'showactive': False, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
-fig2.data[2].visible=True
+
 
 st.write("""
 In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
