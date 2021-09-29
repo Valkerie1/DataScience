@@ -620,7 +620,8 @@ dff = df.drop(index , inplace=True)
 # airport >2m
 dff = df[(df['Month']== 12)]
 dff = dff[(dff['Pax_Total_Year'] >= 2000000)]
-
+st.dataframe(dff)
+'''
 figpax1 = px.scatter(
                         data_frame=dff,
                         x="Year",
