@@ -571,7 +571,7 @@ st.write("""
 """)
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
-fig5 = px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline='lowess')
+fig5 = px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline='lowess', trendlineoptions=dict(frac=0.1))
 st.plotly_chart(fig5)
 
 
