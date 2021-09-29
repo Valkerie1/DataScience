@@ -704,7 +704,7 @@ easteregg = st.radio('Finished?',
 if easteregg=='Yes!':
             st.text('Nice!')
             st.balloons()
-else:
+
 
                              
 
