@@ -571,24 +571,6 @@ st.write("""
 
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
-#pax graph
-fig5 = px.scatter(data_frame= All, x='Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
-
-fig5.update_layout(title_text="Total number of passengers over the years",
-            xaxis_title='Year',
-            yaxis_title='Total number of passengers', width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
-
-#acm graph
-fig6 = px.scatter(data_frame= All, x= 'Date', y= 'Acm_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
-
-fig6.update_layout(title_text="Total number of acm over the years",
-            xaxis_title='Year',
-            yaxis_title='Total number of acm', width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
-
-
-        
 option = st.radio('Select a graph:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
 
@@ -599,6 +581,12 @@ if option=='Total number of passengers over the years':
             #            time.sleep(0.1)
             #            my_bar.progress(percent_complete +1)
             #st.balloons()
+            fig5 = px.scatter(data_frame= All, x='Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
+
+            fig5.update_layout(title_text="Total number of passengers over the years",
+                        xaxis_title='Year',
+                        yaxis_title='Total number of passengers', width=950, height=620,
+                        title={'x':0.5, 'xanchor':'center'})
             st.plotly_chart(fig5)
 elif option=='Total number of acm over the years':
             #my_bar = st.progress(0)
@@ -606,13 +594,14 @@ elif option=='Total number of acm over the years':
             #            time.sleep(0.1)
             #            my_bar.progress(percent_complete +1)
             #st.balloons()
+            fig6 = px.scatter(data_frame= All, x= 'Date', y= 'Acm_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
+
+            fig6.update_layout(title_text="Total number of acm over the years",
+                        xaxis_title='Year',
+                        yaxis_title='Total number of acm', width=950, height=620,
+                        title={'x':0.5, 'xanchor':'center'})
             st.plotly_chart(fig6)
             
-#chapter 5
-st.subheader('5. Conclusion')
-st.write("""
-
-""")
 
 index = df[df['AIRPORT'] == 'All Australian Airports' ].index
 dff = df.drop(index , inplace=True)
@@ -664,8 +653,8 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
-                        #labels={"Pax_Total_Year":"Total number of passengers",
-                        #"AIRPORT":"Airport"},           
+                        labels={"Pax_Total_Year":"Total number of passengers",
+                        "AIRPORT":"Airport"},           
                         title='Total number of passengers between 1985-2020 greater than 2 million',                    
                         template='ggplot2',   
                         trendline='ols',
@@ -703,7 +692,12 @@ elif paxacmoption == 'Number of passengers until 2 million':
             figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
             figpax2.update_layout(uniformtext_minsize=6)
             st.plotly_chart(figpax2)
-            
+
+#chapter 5
+st.subheader('5. Conclusion')
+st.write("""
+
+""")            
 
 
 
