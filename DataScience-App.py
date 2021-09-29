@@ -572,7 +572,7 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             bargroupgap=0.05,
             width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
-)
+
 
 st.write("""
 This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
