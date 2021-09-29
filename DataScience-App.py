@@ -699,11 +699,12 @@ st.write("""
 
 """)
 
-easteregg = st.sidebar.radio('Did you enjoy?', 
+easteregg = st.radio('Finished?', 
                             ['Yes!', 'No'])
 if easteregg=='Yes!':
             st.text('Nice!')
             st.balloons()
+else:
 
                              
 
