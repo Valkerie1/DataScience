@@ -638,7 +638,9 @@ figpax1 = px.scatter(
                         #"AIRPORT":"Airport"},           
                         title='Total number of passengers between 1985-2020 greater than 2 million',                    
                         template='ggplot2',   
-                        trendline='ols'
+                        trendline='ols',
+                        height= 650,
+                        width= 950,
 )
 figpax1["layout"].pop("updatemenus")
 figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
@@ -665,7 +667,8 @@ figpax2 = px.scatter(
                         "AIRPORT":"Airport"},           
                         title='Total number of passengers between 1985-2020 lower than 2 million',                    
                         template='ggplot2', 
-                        height= 1000,
+                        height= 650,
+                        width= 950,
 )
 figpax2["layout"].pop("updatemenus")
 figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
@@ -689,10 +692,11 @@ figpaxall = px.scatter(
                         orientation="v",              
                         text='Pax_Total_Year',
                         labels={"Pax_Total_Year":"Total number of passengers",
-                        "AIRPORT":airports},           
+                        "AIRPORT":"Airport"},           
                         title='Total number of passengers between 1985-2020',                    
                         template='ggplot2', 
-                        height= 1000,
+                        height= 650,
+                        width= 950,
 )
 figpaxall["layout"].pop("updatemenus")
 figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
