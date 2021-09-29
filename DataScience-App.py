@@ -64,9 +64,6 @@ The front runners are obviously the country's largest cities, Sydney, Melbourne,
 This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
 However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
 
-This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
-To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
-Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Brisbane airport.
 """)
 dropdown_buttons2= [{'label': 'All', 
                     'method': 'update', 
