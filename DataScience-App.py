@@ -571,7 +571,7 @@ st.write("""
 
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
-option = st.radio('Select a graph:',
+option = st.radio('Select a graph to display:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
 
 
@@ -606,7 +606,7 @@ elif option=='Total number of acm over the years':
 index = df[df['AIRPORT'] == 'All Australian Airports' ].index
 dff = df.drop(index , inplace=True)
 
-paxacmoption = st.selectbox('Select the graph to display',
+paxacmoption = st.selectbox('Select a graph to display',
                            ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
 
 if paxacmoption == 'Number of passengers':
@@ -697,8 +697,12 @@ elif paxacmoption == 'Number of passengers until 2 million':
 st.subheader('5. Conclusion')
 st.write("""
 
-""")            
+""")
 
+easteregg = st.sidebar.radio('Click here')
+if easteregg:
+            st.text('Congrat, you found the easteregg')
+            st.balloons()
 
 
 
