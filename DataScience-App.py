@@ -6,7 +6,7 @@ import json
 import plotly.express as px
 import plotly.graph_objects as go
 import time
-from sklearn.linear_model import LinearRegression as lr
+from sklearn.linear_model import LinearRegression
 import dash
 from dash import dcc
 from dash import html
