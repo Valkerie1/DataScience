@@ -687,8 +687,7 @@ figpaxall = px.scatter(
                         "AIRPORT":"Airport"},           
                         title='Total Pax 1985-2020 for Airports > 2M Pax per year',                    
                         template='ggplot2',   
-                        trendline='ols'
-)
+                        )
 figpaxall["layout"].pop("updatemenus")
 figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpaxall.update_layout(uniformtext_minsize=12)
