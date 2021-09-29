@@ -628,7 +628,7 @@ x_new = np.arange(36,50).reshape((-1,1))
 y_new = regressor.predict(x_new)
 
 
-fig7 = px.scatter(x_new, y_new)
+fig7 = px.scatter(y_new, x_new)
 
 fig7.update_layout(title_text="Total number of acm over the years",
             xaxis_title='Year',
