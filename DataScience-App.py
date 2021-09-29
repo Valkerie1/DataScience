@@ -617,12 +617,42 @@ st.write("""
 index = df[df['AIRPORT'] == 'All Australian Airports' ].index
 dff = df.drop(index , inplace=True)
 
-# airport >2m
-dff = df[(df['Month']== 12)]
-dff = dff[(dff['Pax_Total_Year'] >= 2000000)]
+paxacmoption = st.selectbox('Select the graph to display',
+                           ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
+
+if paxacmoption == 'Number of passengers':
+            dff = df[(df['Month']== 12)]
+            dff = dff[['Year','Pax_Total_Year','AIRPORT']]
+
+            figpaxall = px.scatter(
+                        data_frame=dff,
+                        x="Year",
+                        y="Pax_Total_Year",
+                        animation_frame="Year",
+                        animation_group="AIRPORT",
+                        range_x=[1984,2023], 
+                        range_y=[0,49000000],
+                        color="AIRPORT",               
+                        opacity=0.9,                  
+                        orientation="v",              
+                        text='Pax_Total_Year',
+                        labels={"Pax_Total_Year":"Total number of passengers",
+                        "AIRPORT":"Airport"},           
+                        title='Total number of passengers between 1985-2020',                    
+                        template='ggplot2',
+                        height= 650,
+                        width= 920,
+            )
+            figpaxall["layout"].pop("updatemenus")
+            figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
+            figpaxall.update_layout(uniformtext_minsize=6)
+            st.plotly_chart(figpaxall)
+elif paxacmoption == 'Number of passengers greater than 2 million':
+            dff = df[(df['Month']== 12)]
+            dff = dff[(dff['Pax_Total_Year'] >= 2000000)]
 
 
-figpax1 = px.scatter(
+            figpax1 = px.scatter(
                         data_frame=dff,
                         x="Year",
                         y="Pax_Total_Year",
@@ -641,17 +671,16 @@ figpax1 = px.scatter(
                         trendline='ols',
                         height= 650,
                         width= 920,
-)
-figpax1["layout"].pop("updatemenus")
-figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-figpax1.update_layout(uniformtext_minsize=12)
+            )
+            figpax1["layout"].pop("updatemenus")
+            figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
+            figpax1.update_layout(uniformtext_minsize=12)
+            st.plotly_chart(figpax1)
+elif paxacmoption == 'Number of passengers until 2 million':
+            dff = df[(df['Month']== 12)]
+            dff = dff[(dff['Pax_Total_Year'] <= 2000000)]
 
-
-# airport <2m
-dff = df[(df['Month']== 12)]
-dff = dff[(dff['Pax_Total_Year'] <= 2000000)]
-
-figpax2 = px.scatter(
+            figpax2 = px.scatter(
                         data_frame=dff,
                         x="Year",
                         y="Pax_Total_Year",
@@ -669,50 +698,10 @@ figpax2 = px.scatter(
                         template='ggplot2', 
                         height= 650,
                         width= 920,
-)
-figpax2["layout"].pop("updatemenus")
-figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-figpax2.update_layout(uniformtext_minsize=6)
-
-
-# airport all
-dff = df[(df['Month']== 12)]
-dff = dff[['Year','Pax_Total_Year','AIRPORT']]
-
-figpaxall = px.scatter(
-                        data_frame=dff,
-                        x="Year",
-                        y="Pax_Total_Year",
-                        animation_frame="Year",
-                        animation_group="AIRPORT",
-                        range_x=[1984,2023], 
-                        range_y=[0,49000000],
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total number of passengers"},           
-                        title='Total number of passengers between 1985-2020',                    
-                        template='ggplot2',
-                        category_orders={'AIRPORT':['ADELAIDE', 'ALICE SPRINGS', 'BALLINA', 'BRISBANE', 'CAIRNS', 'CANBERRA','DARWIN', 'GOLD COAST', 
-                        'HAMILTON ISLAND', 'HOBART', 'KARRATHA', 'LAUNCESTON', 'MACKAY', 'SUNSHINE COAST', 'PERTH', 
-                        'ROCKHAMPTON', 'MELBOURNE', 'SYDNEY', 'TOWNSVILLE', 'NEWCASTLE', 'AYERS ROCK']},
-                        height= 650,
-                        width= 920,
-)
-figpaxall["layout"].pop("updatemenus")
-figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-figpaxall.update_layout(uniformtext_minsize=6)
-
-
-paxacmoption = st.selectbox('Select the graph to display',
-                           ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
-
-if paxacmoption == 'Number of passengers':
-            st.plotly_chart(figpaxall)
-elif paxacmoption == 'Number of passengers greater than 2 million':
-            st.plotly_chart(figpax1)
-elif paxacmoption == 'Number of passengers until 2 million':
+            )
+            figpax2["layout"].pop("updatemenus")
+            figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
+            figpax2.update_layout(uniformtext_minsize=6)
             st.plotly_chart(figpax2)
             
 
