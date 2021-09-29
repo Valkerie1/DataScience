@@ -570,8 +570,7 @@ st.write("""
 
 """)
 
-fig4= px.scatter(data_frame= All, x= 'Date', y= 'Acm_Total', trendline= 'ols')
-st.plotly_chart(fig4)
+
 
 
 
