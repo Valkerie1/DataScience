@@ -493,7 +493,7 @@ for airport in airports:
     fig2.add_trace(go.Scatter(x= df2020[df2020['AIRPORT'] == airport]['Pax_Total'],
                               y= df2020[df2020['AIRPORT'] == airport]['Acm_Total'],
                               mode= 'markers',
-                              name= "Corona",
+                              name= "Corona"+str(airport),
                               text= df2020[df2020['AIRPORT'] == airport]['Date']))
 
 
