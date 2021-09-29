@@ -176,10 +176,11 @@ fig.update_layout({
             }]})
 
 st.write("""
-As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
+As can be seen on this plot, over the years the amount of passengers has grown tremendously. 
 The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
-This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
-However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
+This crash is caused by the covid-19 pandemic. 
+During this period of upheaval and uncertainty the borders of Australia were closed. However, the plot shows that in this year the airports still receive passengers, 
+just not as much as previous years. To see in which months covid-19 had an influence on the growth, the following scatterplot has been made.
 
 """)
 st.plotly_chart(fig)
@@ -511,13 +512,16 @@ fig2.update_layout({
 
 
 st.write("""
-In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
-Good to note is that the plot shows a flattening as passenger numbers rise. 
-The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
-A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
-Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
-For international flights, larger aircraft are deployed in contrast to domestic flights. 
-To see whether these airports accommodate international or domestic flight, the following visualisation is made.
+In this scatterplot can be seen that the more passengers an airport receives, the more air traffic movements there are at that airport. 
+An observation to pay attention to is that the plot shows a flattening as passenger numbers rise. The biggest airports where flattening of the line can be clearly seen, 
+are Sydney, Melbourne, Brisbane and Perth. A reason for this can possibly be that these airports face a capacity limit.
+
+Because of covid-19 the growth is not in line with the growth of the last 40 years, the data from 2020 is shown in a different colour when selecting an airport in the dropdown menu. For example, 
+when examining the plot of Adelaide Airport, it can be seen that there is a major difference between March and April. 
+Where in March 428,787 passengers arrived or departed from this airport, in April there were only 11,845 passengers. 
+The following month, May, this number increased to 15,739 passengers. The months hereafter, growth of the amount of air traffic movements and passengers can be observed. 
+This decrease and increase of the air traffic movements and passengers can also be observed for the other airports. 
+To discover whether there is a relation between a faster recovery from this period and deploying domestic and/or international flights, the following bar plot is made.
 """)
 st.plotly_chart(fig2)
 
@@ -565,12 +569,6 @@ st.write("""
 """)
 
 
-#chapter 5
-st.subheader('5. Conclusion')
-st.write("""
-
-""")
-
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
 #pax graph
@@ -610,7 +608,11 @@ elif option=='Total number of acm over the years':
             st.balloons()
             st.plotly_chart(fig6)
             
+#chapter 5
+st.subheader('5. Conclusion')
+st.write("""
 
+""")
             
 
 '''  
