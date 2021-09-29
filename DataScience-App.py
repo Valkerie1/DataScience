@@ -516,7 +516,7 @@ fig2.update_layout({
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
-fig2.data[0].visible=True
+fig2.data[1].visible=True
 
 st.write("""
 In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
