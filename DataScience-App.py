@@ -700,9 +700,9 @@ st.write("""
 """)
 
 easteregg = st.sidebar.radio('Click here')
-if easteregg:
-            st.text('Congrat, you found the easteregg')
-            st.balloons()
+#if easteregg:
+#            st.text('Congrat, you found the easteregg')
+#            st.balloons()
 
 
 
