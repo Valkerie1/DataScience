@@ -640,7 +640,7 @@ figpax1 = px.scatter(
                         template='ggplot2',   
                         trendline='ols',
                         height= 650,
-                        width= 950,
+                        width= 920,
 )
 figpax1["layout"].pop("updatemenus")
 figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
@@ -668,7 +668,7 @@ figpax2 = px.scatter(
                         title='Total number of passengers between 1985-2020 lower than 2 million',                    
                         template='ggplot2', 
                         height= 650,
-                        width= 950,
+                        width= 920,
 )
 figpax2["layout"].pop("updatemenus")
 figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
@@ -696,7 +696,7 @@ figpaxall = px.scatter(
                         title='Total number of passengers between 1985-2020',                    
                         template='ggplot2', 
                         height= 650,
-                        width= 950,
+                        width= 920,
 )
 figpaxall["layout"].pop("updatemenus")
 figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
@@ -709,9 +709,9 @@ paxacmoption = st.selectbox('Select the graph to display',
 if paxacmoption == 'Number of passengers':
             st.plotly_chart(figpaxall)
 elif paxacmoption == 'Number of passengers greater than 2 million':
-            st.plotly_chart(figpax2)
-elif paxacmoption == 'Number of passengers until 2 million':
             st.plotly_chart(figpax1)
+elif paxacmoption == 'Number of passengers until 2 million':
+            st.plotly_chart(figpax2)
 
 
 
