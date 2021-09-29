@@ -598,14 +598,14 @@ if option=='Total number of passengers over the years':
             for percent_complete in range(100):
                         time.sleep(0.1)
                         my_bar.progress(percent_complete +1)
-            st.balloons()
+            #st.balloons()
             st.plotly_chart(fig5)
 elif option=='Total number of acm over the years':
             my_bar = st.progress(0)
             for percent_complete in range(100):
                         time.sleep(0.1)
                         my_bar.progress(percent_complete +1)
-            st.balloons()
+            #st.balloons()
             st.plotly_chart(fig6)
             
 #chapter 5
@@ -613,6 +613,9 @@ st.subheader('5. Conclusion')
 st.write("""
 
 """)
+
+index = df[df['AIRPORT'] == 'All Australian Airports' ].index
+dff = df.drop(index , inplace=True)
 
 # airport >2m
 dff = df[(df['Month']== 12)]
@@ -625,7 +628,7 @@ figpax1 = px.scatter(
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2022.5], 
-                        range_y=[1500000,45500000],
+                        range_y=[1900000,49000000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
@@ -666,8 +669,10 @@ figpax2["layout"].pop("updatemenus")
 figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax2.update_layout(uniformtext_minsize=6)
 
+dff = df[(df['Month']== 12)]
+dff = dff['Pax_Total_Year']
 figpaxall = px.scatter(
-                        data_frame=df_month12,
+                        data_frame=dff,
                         x="Year",
                         y="Pax_Total_Year",
                         animation_frame="Year",
