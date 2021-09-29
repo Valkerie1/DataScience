@@ -571,7 +571,13 @@ st.write("""
 """)
 All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
 
-fig5 = px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.1), trendline_color_override='black')
+fig5 = px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline='lowess', trendline_options=dict(frac=0.1, window=5), trendline_color_override='red')
+
+fig5.update_layout(title_text="Passengers per air traffic movement",
+            xaxis_title='Total number of passengers',
+            yaxis_title='Air traffic movements', width=950, height=620,
+            title={'x':0.5, 'xanchor':'center'})
+
 st.plotly_chart(fig5)
 
 
