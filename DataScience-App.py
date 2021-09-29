@@ -594,9 +594,13 @@ option = st.radio('Select a graph:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
 
 
-if option=='Passenger graph':
+if option=='Total number of passengers over the years':
+            my_bar = st.progress(0)
+            for percent_complete in range(100):
+                        time.sleep(0.1)
+                        my_bar.progress(percent_complete +1)
             st.plotly_chart(fig5)
-elif option=='Acm graph':
+elif option=='Total number of acm over the years':
             st.plotly_chart(fig6)
             
 
