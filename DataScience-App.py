@@ -569,9 +569,9 @@ st.subheader('5. Conclusion')
 st.write("""
 
 """)
-
-
-
+fig5= px()
+fig5= px.scatter(data_frame= All, x= 'Date', y= 'Pax_Total', trendline= 'ols')
+st.plotly_chart(fig5)
 
 
 '''  
