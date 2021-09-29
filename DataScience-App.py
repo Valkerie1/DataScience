@@ -644,7 +644,7 @@ figpax1["layout"].pop("updatemenus")
 figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax1.update_layout(uniformtext_minsize=12)
 st.plotly_chart(figpax1)
-'''
+
 # airport <2m
 dff = df[(df['Month']== 12)]
 dff = dff[(dff['Pax_Total_Year'] <= 2000000)]
@@ -670,7 +670,8 @@ figpax2 = px.scatter(
 figpax2["layout"].pop("updatemenus")
 figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
 figpax2.update_layout(uniformtext_minsize=6)
-
+st.plotly_chart(figpax2)
+'''
 dff = df[(df['Month']== 12)]
 dff = dff['Pax_Total_Year']
 figpaxall = px.scatter(
