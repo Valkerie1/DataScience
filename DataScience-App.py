@@ -599,8 +599,13 @@ if option=='Total number of passengers over the years':
             for percent_complete in range(100):
                         time.sleep(0.1)
                         my_bar.progress(percent_complete +1)
+            st.balloons()
             st.plotly_chart(fig5)
 elif option=='Total number of acm over the years':
+            my_bar = st.progress(0)
+            for percent_complete in range(100):
+                        time.sleep(0.1)
+                        my_bar.progress(percent_complete +1)
             st.plotly_chart(fig6)
             
 
