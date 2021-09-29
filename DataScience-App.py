@@ -510,7 +510,6 @@ fig2.update_layout(title_text="Passengers per air traffic movement",
             xaxis_title='Total number of passengers',
             yaxis_title='Air traffic movements', width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
-fig2.data[0].visible=True
 
 fig2.update_layout({
     'updatemenus':[{'type': 'dropdown',
@@ -518,6 +517,7 @@ fig2.update_layout({
                     'showactive': True, 'active': 0,
                     'buttons': dropdown_buttons2
             }]})
+fig2.data[0].visible=True
 
 st.write("""
 In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
