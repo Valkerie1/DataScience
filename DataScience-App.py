@@ -703,7 +703,7 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
             st.plotly_chart(figpax2)
 elif paxacmoption == 'Number of passengers until 2 million':
             st.plotly_chart(figpax1)
-
+'''
 
 
 
