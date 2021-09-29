@@ -589,18 +589,15 @@ fig6.update_layout(title_text="Total number of acm over the years",
             title={'x':0.5, 'xanchor':'center'})
 
 
-'''
-check = st.checkbox('Select graph')
-
-if check:
-            st.plotly_chart(fig5)
-else:
-            st.plotly_chart(fig6)
-'''            
+        
 option = st.radio('Select a graph:',
-                 ['Passenger graph','Acm graph'])
+                 ['Total number of passengers over the years','Total number of acm over the years'])
+my_bar = st.progress(0)
 
 if option=='Passenger graph':
+            for percent_complete in range(100):
+                        time.sleep(0.1)
+                        my_bar.progress(percent_complete +1)
             st.plotly_chart(fig5)
 elif option=='Acm graph':
             st.plotly_chart(fig6)
