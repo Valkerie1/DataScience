@@ -64,14 +64,6 @@ The front runners are obviously the country's largest cities, Sydney, Melbourne,
 This crash is caused by the covid-19 pandemic. During this period of upheaval and uncertainty the borders of Australia were closed. 
 However, the plot shows that in this year there were still passengers, just not as much as previous years. These passengers were all on domestic flights.
 
-In this scatterplot can be seen that the more passengers an airport receives, the more aircraft movements there are at that airport. 
-Good to note is that the plot shows a flattening as passenger numbers rise. 
-The biggest airports where flattening of the line can be clearly seen, are Sydney, Melbourne, Brisbane and Perth. 
-A reason for this can possibly be that airlines use larger aircraft, that can carry more passengers, on these large airports. 
-Something related to this is if these airports accommodate international flights, domestic flights or a combination of these. 
-For international flights, larger aircraft are deployed in contrast to domestic flights. 
-To see whether these airports accommodate international or domestic flight, the following visualisation is made.
-
 This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
 To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
 Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Brisbane airport.
@@ -342,6 +334,12 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             bargroupgap=0.05,
             width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
+
+st.write("""
+This barplot shows that the biggest airports mentioned above are international as well as domestic airports. 
+To be precise, Sydney and Brisbane provide international as well as domestic flight, while Melbourne and Perth provide only domestic flights. 
+Good to know is that this plot has a logarithmic y axis to see the difference between the number of passengers, otherwise, the number of passengers at the other airports would not have been visible due to the large number of passengers at Brisbane airport.
+""")
 
 st.plotly_chart(fig3)
 
