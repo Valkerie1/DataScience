@@ -595,7 +595,7 @@ This plot shows the total number of passengers over the years. When selecting �
 
 Another observation is that over the years there are more fluctuations. Where air transport was first something for the elite, over the years it has become more and more accessible to the general population. These passengers react more strongly to seasonal changes, hence the increase of fluctuations. 
 
-The thing that stands out most in this plot is the dip of 2020. Although COVID-19 created an immense crash, it can be seen that the number of passengers pick up quickly between April 2020 and April 2021. Hereafter, another dip can be seen, which is caused by Australia’s second lockdown.
+The thing that stands out most in this plot is the dip of 2020. Although COVID-19 created an immense crash, it can be seen that the number of passengers pick up quickly between April 2020 and April 2021. In this period, Australia had reached a point where no COVID-19 cases had been reported. Hereafter, new COVID-19 cases were reported and Australia had announced a second lockdown, which caused another dip can be seen, which is caused by Australia’s second lockdown.
 """)
 
 
