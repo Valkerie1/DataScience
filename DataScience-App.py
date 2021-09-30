@@ -27,10 +27,9 @@ In each itteration, 100 rows are retrieved and stored in a list named 'datalist'
 However, there is a data limit on the API, so it was not possible to fetch all the data, therefore a CSV file was used to load the data.
 
 
-offset =0
-i = 0
-url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
-
+    offset =0
+    i = 0
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
     r=requests.get(url)
     datatxt= r.text
     datajs = json.loads(datatxt)
@@ -48,9 +47,8 @@ url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(off
         print(i)
         offset=offset+100
         i = i+100
-
-listtemp = [x for l in datalist for x in l]
-df = pd.DataFrame(listtemp)
+    listtemp = [x for l in datalist for x in l]
+    df = pd.DataFrame(listtemp)
 
 """)
 
