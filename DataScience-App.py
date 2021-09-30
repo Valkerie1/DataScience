@@ -34,6 +34,7 @@ However, there is a data limit on the API, so it was not possible to fetch all t
     datatxt= r.text
     datajs = json.loads(datatxt)
     print(datajs)
+    
     datalist = []
     
     while i != 9200: # er zijn 9198 rijen
@@ -48,6 +49,7 @@ However, there is a data limit on the API, so it was not possible to fetch all t
         print(i)
         offset=offset+100
         i = i+100
+    
     listtemp = [x for l in datalist for x in l]
     df = pd.DataFrame(listtemp)
 
