@@ -571,6 +571,7 @@ if pax == "All":
                        bargroupgap=0.05,
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
+     st.plotly_chart(fig3)
 
 elif pax == "Domestic":
     fig3 = go.Figure()
@@ -589,6 +590,7 @@ elif pax == "Domestic":
                        bargroupgap=0.05,
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
+    st.plotly_chart(fig3)
 elif pax == "International":
     fig3 = go.Figure()
     fig3.update_layout(yaxis_type="log")
@@ -606,6 +608,7 @@ elif pax == "International":
                        bargroupgap=0.05,
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
+     st.plotly_chart(fig3)
 
 
 st.write("""
@@ -614,7 +617,7 @@ This bar plot shows which airports deployed international flights and/or domesti
 Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
 """)
 
-st.plotly_chart(fig3)
+
 
 
 
