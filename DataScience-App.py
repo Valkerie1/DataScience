@@ -525,11 +525,11 @@ fig3.add_trace(go.Bar(x=airports,
                 ))
 sliders = [
     {'steps':[
-    {'method': 'update', 'label': 'All', 
+    {'method': 'update', 'label': 'Domestic and international', 
      'args': [{'visible': [True, True]}]},
-    {'method': 'update', 'label': '', 
+    {'method': 'update', 'label': 'International', 
      'args': [{'visible': [True, False]}]},
-    {'method': 'update', 'label': '96 - 00', 
+    {'method': 'update', 'label': 'Domestic', 
      'args': [{'visible': [False, True]}]},
     ]}]
 
