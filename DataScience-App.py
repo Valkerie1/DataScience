@@ -21,13 +21,13 @@ It is estimated that there are roughly 100.000 flights per day all around the wo
 #chapter 2
 st.subheader('2. Resources')
 st.write("""
-offset =0
-i = 0
-url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
-r=requests.get(url)
-datatxt= r.text
-datajs = json.loads(datatxt)
-print(datajs)
+    offset =0
+    i = 0
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    print(datajs)
 
 datalist = []
 while i != 9200: # er zijn 9198 rijen
