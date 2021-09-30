@@ -18,6 +18,36 @@ Getting up early to catch a flight? I am sure that sounds familiar to you, wheth
 It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the COVID-19 pandemic. How is the Australian aviation industry going to recover from this? Since, air transportation is at the heart of the Australian economic growth, a fast recovery of the aviation industry is crucial.
 """)
 
+#chapter 2
+st.subheader('2. Resources')
+st.write("""
+offset =0
+i = 0
+url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+r=requests.get(url)
+datatxt= r.text
+datajs = json.loads(datatxt)
+print(datajs)
+
+datalist = []
+while i != 9200: # er zijn 9198 rijen
+    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+        
+    r=requests.get(url)
+    datatxt= r.text
+    datajs = json.loads(datatxt)
+    datalist.append(datajs['result']['records'])
+    
+    print(datalist)
+    print(i)
+    offset=offset+100
+    i = i+100
+
+listtemp = [x for l in datalist for x in l]
+df = pd.DataFrame(listtemp)
+
+""")
+
 # import data
 url1= 'https://data.gov.au/data/dataset/cc5d888f-5850-47f3-815d-08289b22f5a8/resource/38bdc971-cb22-4894-b19a-814afc4e8164/download/mon_pax_web.csv'  
 url2= 'https://data.gov.au/data/dataset/cc5d888f-5850-47f3-815d-08289b22f5a8/resource/583be26d-59b9-4bcc-827d-4d9f7162fb04/download/mon_acm_web.csv'
@@ -35,8 +65,8 @@ df['Date'] = pd.to_datetime(df['Date'])
 
 
 
-# chapter 2
-st.subheader('2. Exploratory Data Analysis')
+# chapter 3
+st.subheader('3. Exploratory Data Analysis')
 # fig pax growth
 dropdown_buttons= [{'label': 'All',
             'method': 'update',
@@ -584,8 +614,8 @@ elif slider == "International":
 
 
 
-#chapter 3
-st.subheader('3. Forecasting the recovery')
+#chapter 4
+st.subheader('4. Forecasting the recovery')
 st.write("""
 The plot below, 'Total number of passengers over the years', shows the total number of passengers over the years. When selecting ‘total number of acm over the years’ in the checkbox, this can be viewed too. Both plots show a dip in 1989. This was caused by the Australian pilots’ dispute. All of Australia's 1,645 domestic airline pilots resign over an airline's move to dismiss and sue them over a wage dispute. The dispute severely disrupted domestic air travel in Australia and had a major detrimental impact on the tourism industry. Hence, the dip in this plot. 
 
@@ -629,8 +659,8 @@ elif option=='Total number of acm over the years':
             st.plotly_chart(fig6)
             
 
-#chapter 4
-st.subheader('4. Conclusion')
+#chapter 5
+st.subheader('5. Conclusion')
 st.write("""
 In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 Australian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
 This drop in passenger number is caused by COVID-19. Both the acm as well as the passenger numbers decreased massively. A barplot was made to show the number of passengers from domestic and international flights in 2020.
