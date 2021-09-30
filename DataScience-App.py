@@ -607,7 +607,7 @@ index = df[df['AIRPORT'] == 'All Australian Airports' ].index
 dff = df.drop(index , inplace=True)
 
 paxacmoption = st.selectbox('Select a graph to display',
-                           ['Number of passengers','Number of passengers greater than 2 million','Number of passengers until 2 million'])
+                           ['Number of passengers','Number of passengers greater than 1.5 million','Number of passengers until 1.5 million'])
 
 if paxacmoption == 'Number of passengers':
             dff = df[(df['Month']== 12)]
@@ -636,9 +636,9 @@ if paxacmoption == 'Number of passengers':
             figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
             figpaxall.update_layout(uniformtext_minsize=6)
             st.plotly_chart(figpaxall)
-elif paxacmoption == 'Number of passengers greater than 2 million':
+elif paxacmoption == 'Number of passengers greater than 1.5 million':
             dff = df[(df['Month']== 12)]
-            dff = dff[(dff['Pax_Total_Year'] >= 2000000)]
+            dff = dff[(dff['Pax_Total_Year'] >= 1500000)]
 
 
             figpax1 = px.scatter(
@@ -648,7 +648,7 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2023], 
-                        range_y=[1500000,49000000],
+                        range_y=[1000000,49000000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
@@ -665,9 +665,9 @@ elif paxacmoption == 'Number of passengers greater than 2 million':
             figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
             figpax1.update_layout(uniformtext_minsize=12)
             st.plotly_chart(figpax1)
-elif paxacmoption == 'Number of passengers until 2 million':
+elif paxacmoption == 'Number of passengers until 1.5 million':
             dff = df[(df['Month']== 12)]
-            dff = dff[(dff['Pax_Total_Year'] <= 2000000)]
+            dff = dff[(dff['Pax_Total_Year'] <= 1500000)]
 
             figpax2 = px.scatter(
                         data_frame=dff,
@@ -676,14 +676,14 @@ elif paxacmoption == 'Number of passengers until 2 million':
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2023], 
-                        range_y=[0,2100000],
+                        range_y=[0,2000000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
                         text='Pax_Total_Year',
                         labels={"Pax_Total_Year":"Total number of passengers",
                         "AIRPORT":"Airport"},           
-                        title='Total number of passengers between 1985-2020 lower than 2 million',                    
+                        title='Total number of passengers between 1985-2020 lower than 1.5 million',                    
                         template='ggplot2', 
                         height= 650,
                         width= 920,
