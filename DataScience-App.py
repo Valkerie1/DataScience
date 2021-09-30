@@ -37,7 +37,7 @@ However, there is a data limit on the API, so it was not possible to fetch all t
     
     datalist = []
     
-    while i != 9200: # er zijn 9198 rijen
+    while i != 9200: # the API contains 9198 rows in total
         url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
         
         r=requests.get(url)
