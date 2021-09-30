@@ -509,46 +509,9 @@ To discover whether there is a relation between a faster recovery from this peri
 st.plotly_chart(fig2)
 
 df_2020=df.query('Month ==12 & Year ==2020')
-'''
-fig3 = go.Figure()
 
-fig3.update_layout(yaxis_type="log")
-
-fig3.add_trace(go.Bar(x=airports,
-                y= df_2020.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
-                name='International passengers',
-                marker_color='rgb(55, 83, 109)'
-                ))
-fig3.add_trace(go.Bar(x=airports,
-                y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
-                name ='Domestic passengers',
-                marker_color='rgb(26, 118, 255)'
-                ))
-sliders = [
-    {'steps':[
-    {'method': 'update', 'label': 'Domestic and international', 
-     'args': [{'visible': [True, True]}]},
-    {'method': 'update', 'label': 'International', 
-     'args': [{'visible': [True, False]}]},
-    {'method': 'update', 'label': 'Domestic', 
-     'args': [{'visible': [False, True]}]},
-    ]}]
-
-
-
-fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
-            xaxis_tickfont_size=14,
-            yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
-            legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
-            barmode='group',
-            bargap=0.02,
-            bargroupgap=0.05,
-            width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
-fig3.update_layout({"sliders": sliders})
-'''
 pax= ["All", "Domestic", "International"]
-slider= st.select_slider("Choose Passenger Type",
+slider= st.select_slider("Choose Passenger Type to display",
                 options= pax)
 if slider == "All":
     fig3= go.Figure()
@@ -613,9 +576,11 @@ elif slider == "International":
 
 
 st.write("""
-This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are possibly repatriation flights.
+This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
 
 Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
+
+The total number of domestic flights in 2020 was mainly realized in the 2nd half of 2020. In the months of March, April and May, the provincial borders in Australia were also closed for a while, this is clearly visible in the above scatterplot 'Passengers per air traffic movement', meaning that the points for the relevant months are located at the bottom left of the plot for all airports.
 """)
 
 
@@ -672,7 +637,7 @@ st.subheader('4. Conclusion')
 st.write("""
 In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 AUstralian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
 This drop in passenger number is caused by COVID-19. Both the air traffic movements as well as the passenger numbers decreased massivly. A barplot was made to show the number of passengers from domestic and international flights in 2020.
-The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time, the international flights are possibly repatriation flights.
+The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
 
 In chapter 3, the number of passengers and air traffic movements 
 
