@@ -596,8 +596,8 @@ elif slider == "International":
     fig3= go.Figure()
     fig3.update_layout(yaxis_type="log")
     fig3.add_trace(go.Bar(x=airports,
-                          y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
-                          name ='Domestic passengers',
+                          y= df_2020.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
+                          name ='International passengers',
                           marker_color='rgb(26, 118, 255)'
                          ))
     fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
