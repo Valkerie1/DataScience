@@ -546,13 +546,13 @@ st.plotly_chart(fig3)
 
 
 #chapter 4
-st.subheader('4. Forecasting Until 2030')
+st.subheader('3. Forecasting the recovery')
 st.write("""
 
 """)
 
 
-All= df.query('AIRPORT == "All Australian Airports" & Year < 2020')
+All= df.query('AIRPORT == "All Australian Airports" & Year < 2021')
 
 option = st.radio('Select a graph to display:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
