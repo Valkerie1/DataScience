@@ -582,7 +582,7 @@ elif slider == "Domestic":
                           name ='Domestic passengers',
                           marker_color='rgb(26, 118, 255)'
                          ))
-    fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+    fig3.update_layout(title_text="Domestic passengers per airport in 2020",
                        xaxis_tickfont_size=14,
                        yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
                        legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
@@ -600,7 +600,7 @@ elif slider == "International":
                           name ='International passengers',
                           marker_color='rgb(26, 118, 255)'
                          ))
-    fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+    fig3.update_layout(title_text="International passengers per airport in 2020",
                        xaxis_tickfont_size=14,
                        yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
                        legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
