@@ -508,6 +508,13 @@ To discover whether there is a relation between a faster recovery from this peri
 """)
 st.plotly_chart(fig2)
 
+st.write("""
+This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
+
+Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
+
+The total number of domestic flights in 2020 was mainly realized in the 2nd half of 2020. In the months of April, May and June the provincial borders in Australia were also closed for a while, this is clearly visible in the above scatterplot 'Passengers per air traffic movement', meaning that the points for the relevant months are located at the bottom left of the plot for all airports.
+""")
 df_2020=df.query('Month ==12 & Year ==2020')
 
 pax= ["All", "Domestic", "International"]
@@ -575,13 +582,7 @@ elif slider == "International":
     st.plotly_chart(fig3)
 
 
-st.write("""
-This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
 
-Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
-
-The total number of domestic flights in 2020 was mainly realized in the 2nd half of 2020. In the months of March, April and May, the provincial borders in Australia were also closed for a while, this is clearly visible in the above scatterplot 'Passengers per air traffic movement', meaning that the points for the relevant months are located at the bottom left of the plot for all airports.
-""")
 
 
 
