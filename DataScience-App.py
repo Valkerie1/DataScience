@@ -19,7 +19,7 @@ st.subheader('1. Introduction')
 st.write("""
 Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
 
-It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the covid-19 pandemic. How is the Australian aviation industry going to recover from this? Since, air transportation is at the heart of the Australian economic growth, a fast recovery of the aviation industry is crucial.
+It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the COVID-19 pandemic. How is the Australian aviation industry going to recover from this? Since, air transportation is at the heart of the Australian economic growth, a fast recovery of the aviation industry is crucial.
 """)
 
 # import data
@@ -507,7 +507,7 @@ This decrease and increase of the air traffic movements and passengers can also 
 To discover whether there is a relation between a faster recovery from this period and deploying domestic and/or international flights, the following bar plot is made.
 """)
 st.plotly_chart(fig2)
-
+'''
 df_2020=df.query('Month ==12 & Year ==2020')
 fig3 = go.Figure()
 
@@ -545,6 +545,67 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
 fig3.update_layout({"sliders": sliders})
+'''
+pax= ["All", "Domestic", "International"]
+st.select_slider("Choose Passenger Type",
+                options= pax)
+if pax == "All":
+    fig3 = go.Figure()
+    fig3.update_layout(yaxis_type="log")
+    fig3.add_trace(go.Bar(x=airports,
+                          y= df_2020.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
+                          name='International passengers',
+                          marker_color='rgb(55, 83, 109)'
+                         ))
+    fig3.add_trace(go.Bar(x=airports,
+                          y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+                          name ='Domestic passengers',
+                          marker_color='rgb(26, 118, 255)'
+                         ))
+    fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+                       xaxis_tickfont_size=14,
+                       yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
+                       legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
+                       barmode='group',
+                       bargap=0.02,
+                       bargroupgap=0.05,
+                       width=950, height=620,
+                       title={'x':0.5, 'xanchor':'center'})
+
+elif pax == "Domestic":
+    fig3 = go.Figure()
+    fig3.update_layout(yaxis_type="log")
+    fig3.add_trace(go.Bar(x=airports,
+                          y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+                          name ='Domestic passengers',
+                          marker_color='rgb(26, 118, 255)'
+                         ))
+    fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+                       xaxis_tickfont_size=14,
+                       yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
+                       legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
+                       barmode='group',
+                       bargap=0.02,
+                       bargroupgap=0.05,
+                       width=950, height=620,
+                       title={'x':0.5, 'xanchor':'center'})
+elif pax == "International":
+    fig3 = go.Figure()
+    fig3.update_layout(yaxis_type="log")
+    fig3.add_trace(go.Bar(x=airports,
+                          y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
+                          name ='Domestic passengers',
+                          marker_color='rgb(26, 118, 255)'
+                         ))
+    fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
+                       xaxis_tickfont_size=14,
+                       yaxis=dict(title='Total number of passengers', titlefont_size=16, tickfont_size=14,),
+                       legend=dict(x=0.75, y=1.0, bgcolor='rgba(255, 255, 255, 0)', bordercolor='rgba(255, 255, 255, 0)'),
+                       barmode='group',
+                       bargap=0.02,
+                       bargroupgap=0.05,
+                       width=950, height=620,
+                       title={'x':0.5, 'xanchor':'center'})
 
 
 st.write("""
@@ -557,10 +618,14 @@ st.plotly_chart(fig3)
 
 
 
-#chapter 4
+#chapter 3
 st.subheader('3. Forecasting the recovery')
 st.write("""
+This plot shows the total number of passengers over the years. When selecting ‘total number of acm over the years’ in the checkbox, this can be viewed too. Both plots show a dip in 1989. This was caused by the Australian pilots’ dispute. All of Australia's 1,645 domestic airline pilots resign over an airline's move to dismiss and sue them over a wage dispute. The dispute severely disrupted domestic air travel in Australia and had a major detrimental impact on the tourism industry. Hence, the dip in this plot. 
 
+Another observation is that over the years there are more fluctuations. Where air transport was first something for the elite, over the years it has become more and more accessible to the general population. These passengers react more strongly to seasonal changes, hence the increase of fluctuations. 
+
+The thing that stands out most in this plot is the dip of 2020. Although COVID-19 created an immense crash, it can be seen that the number of passengers pick up quickly between April 2020 and April 2021. Hereafter, another dip can be seen, which is caused by Australia’s second lockdown.
 """)
 
 
@@ -591,107 +656,22 @@ elif option=='Total number of acm over the years':
             #st.balloons()
             fig6 = px.scatter(data_frame= All, x= 'Date', y= 'Acm_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
 
-            fig6.update_layout(title_text="Total number of acm over the years",
+            fig6.update_layout(title_text="Total number of air traffic movements over the years",
                         xaxis_title='Year',
-                        yaxis_title='Total number of acm', width=950, height=620,
+                        yaxis_title='Total number of air traffic movements', width=950, height=620,
                         title={'x':0.5, 'xanchor':'center'})
             st.plotly_chart(fig6)
             
 
-index = df[df['AIRPORT'] == 'All Australian Airports' ].index
-dff = df.drop(index , inplace=True)
-
-paxacmoption = st.selectbox('Select a graph to display',
-                           ['Number of passengers','Number of passengers greater than 1.5 million','Number of passengers until 1.5 million'])
-
-if paxacmoption == 'Number of passengers':
-            dff = df[(df['Month']== 12)]
-            dff = dff[['Year','Pax_Total_Year','AIRPORT']]
-
-            figpaxall = px.scatter(
-                        data_frame=dff,
-                        x="Year",
-                        y="Pax_Total_Year",
-                        animation_frame="Year",
-                        animation_group="AIRPORT",
-                        range_x=[1984,2023], 
-                        range_y=[0,49000000],
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total number of passengers",
-                        "AIRPORT":"Airport"},           
-                        title='Total number of passengers between 1985-2020',                    
-                        template='ggplot2',
-                        height= 650,
-                        width= 920,
-            )
-            figpaxall["layout"].pop("updatemenus")
-            figpaxall.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-            figpaxall.update_layout(uniformtext_minsize=6)
-            st.plotly_chart(figpaxall)
-elif paxacmoption == 'Number of passengers greater than 1.5 million':
-            dff = df[(df['Month']== 12)]
-            dff = dff[(dff['Pax_Total_Year'] >= 1500000)]
-
-
-            figpax1 = px.scatter(
-                        data_frame=dff,
-                        x="Year",
-                        y="Pax_Total_Year",
-                        animation_frame="Year",
-                        animation_group="AIRPORT",
-                        range_x=[1984,2023], 
-                        range_y=[1000000,47000000],
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total number of passengers",
-                        "AIRPORT":"Airport"},           
-                        title='Total number of passengers between 1985-2020 greater than 1.5 million',                    
-                        template='ggplot2',   
-                        trendline='ols',
-                        height= 650,
-                        width= 920,
-            )
-            figpax1["layout"].pop("updatemenus")
-            figpax1.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-            figpax1.update_layout(uniformtext_minsize=12)
-            st.plotly_chart(figpax1)
-elif paxacmoption == 'Number of passengers until 1.5 million':
-            dff = df[(df['Month']== 12)]
-            dff = dff[(dff['Pax_Total_Year'] <= 1500000)]
-
-            figpax2 = px.scatter(
-                        data_frame=dff,
-                        x="Year",
-                        y="Pax_Total_Year",
-                        animation_frame="Year",
-                        animation_group="AIRPORT",
-                        range_x=[1984,2023], 
-                        range_y=[0,1600000],
-                        color="AIRPORT",               
-                        opacity=0.9,                  
-                        orientation="v",              
-                        text='Pax_Total_Year',
-                        labels={"Pax_Total_Year":"Total number of passengers",
-                        "AIRPORT":"Airport"},           
-                        title='Total number of passengers between 1985-2020 lower than 1.5 million',                    
-                        template='ggplot2', 
-                        height= 650,
-                        width= 920,
-            )
-            figpax2["layout"].pop("updatemenus")
-            figpax2.update_traces(texttemplate='%{text:.3s}', textposition='middle right')
-            figpax2.update_layout(uniformtext_minsize=6)
-            st.plotly_chart(figpax2)
-
-#chapter 5
-st.subheader('5. Conclusion')
+#chapter 4
+st.subheader('4. Conclusion')
 st.write("""
-In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 20 AUstralian airports. This plot showed 
+In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 AUstralian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
+This drop in passenger number is caused by COVID-19. Both the air traffic movements as well as the passenger numbers decreased massivly. A barplot was made to show the number of passengers from domestic and international flights in 2020.
+The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time, the international flights are possibly repatriation flights.
+
+In chapter 3, the number of passengers and air traffic movements 
+
 """)
 
 easteregg = st.radio('Finished?', 
