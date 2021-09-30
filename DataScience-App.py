@@ -687,8 +687,11 @@ if easteregg=='Yes!':
 st.sidebar.write("""
 Made by:  
 Jelle Aardema
+
 Majdouline Aït Ali
+
 Maarten Meeuwes
+
 Robin Pelders
 """)
 
