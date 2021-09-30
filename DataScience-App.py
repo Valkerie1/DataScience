@@ -552,7 +552,7 @@ st.write("""
 """)
 
 
-All= df.query('AIRPORT == "All Australian Airports" & Year < 2021')
+All= df.query('AIRPORT == "All Australian Airports" & Year < 2022')
 
 option = st.radio('Select a graph to display:',
                  ['Total number of passengers over the years','Total number of acm over the years'])
