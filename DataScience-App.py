@@ -159,7 +159,7 @@ fig.update_layout({
             }]})
 
 st.write("""
-As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
+As can be seen in the line chart below, 'Passenger growth Australian airport', over the years the amount of passengers has grown tremendously. 
 The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
 This crash is caused by the COVID-19 pandemic. 
 During this period of upheaval and uncertainty the borders of Australia were closed. However, the plot shows that in this year the airports still receive passengers, 
