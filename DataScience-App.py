@@ -547,10 +547,10 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
 fig3.update_layout({"sliders": sliders})
 '''
 pax= ["All", "Domestic", "International"]
-st.select_slider("Choose Passenger Type",
+slider= st.select_slider("Choose Passenger Type",
                 options= pax)
-if pax == "All":
-    fig3 = go.Figure()
+if slider == "All":
+    fig3= go.Figure()
     fig3.update_layout(yaxis_type="log")
     fig3.add_trace(go.Bar(x=airports,
                           y= df_2020.groupby('AIRPORT')['Int_Pax_Total'].sum() ,
@@ -573,8 +573,8 @@ if pax == "All":
                        title={'x':0.5, 'xanchor':'center'})
     st.plotly_chart(fig3)
 
-elif pax == "Domestic":
-    fig3 = go.Figure()
+elif slider == "Domestic":
+    fig3= go.Figure()
     fig3.update_layout(yaxis_type="log")
     fig3.add_trace(go.Bar(x=airports,
                           y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
@@ -591,8 +591,8 @@ elif pax == "Domestic":
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
     st.plotly_chart(fig3)
-elif pax == "International":
-    fig3 = go.Figure()
+elif slider == "International":
+    fig3= go.Figure()
     fig3.update_layout(yaxis_type="log")
     fig3.add_trace(go.Bar(x=airports,
                           y= df_2020.groupby('AIRPORT')['Dom_Pax_Total'].sum() ,
