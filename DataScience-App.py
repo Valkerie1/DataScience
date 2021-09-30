@@ -12,24 +12,14 @@ from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
 
-st.title('Australian Air Traffic forecast for 2030')
-st.subheader('Table of contents')
-st.text("""
-- 1. Introduction
-- 2. Australian airports
-- 3. Exploratory Data Analysis
-- 4. Forecasting until 2030
-- 5. Conclusion
+st.title('Impact of COVID-19 on Australian Air Traffic')
 
-
-
-""")
 #chapter 1
 st.subheader('1. Introduction')
 st.write("""
 Getting up early to catch a flight? I am sure that sounds familiar to you, whether it is for an important meeting or just for your relaxing holiday on the other side of the world.
 
-It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the covid-19 pandemic. How is the Australian aviation industry going to recover from this? And what is the estimated air traffic in 2030? Since, air transportation is at the heart of the Australian economic growth, this estimation is crucial to further support and strengthen the aviation industry and look at pathways for the longer-term
+It is estimated that there are roughly 100.000 flights per day all around the world. All these flights move an estimated 6 million passengers. Usually, air travel is preferred for long distances. That is why it is more than logical that such a large country as Australia has a large number of domestic flights daily. Besides, a lot of international flights are deployed daily due to its beautiful nature and tourist hotspots. This has completely collapsed due to the covid-19 pandemic. How is the Australian aviation industry going to recover from this? Since, air transportation is at the heart of the Australian economic growth, a fast recovery of the aviation industry is crucial.
 """)
 
 # import data
@@ -49,15 +39,8 @@ df['Date'] = pd.to_datetime(df['Date'])
 
 
 
-#chapter 2
-st.subheader('2. Australian Airports')
-st.write("""
-
-""")
-
-
-# chapter 3
-st.subheader('3. Exploratory Data Analysis')
+# chapter 2
+st.subheader('2. Exploratory Data Analysis')
 # fig pax growth
 dropdown_buttons= [{'label': 'All',
             'method': 'update',
@@ -176,11 +159,11 @@ fig.update_layout({
             }]})
 
 st.write("""
-As can be seen on this plot, over the years the amount of passengers has grown tremendously. 
+As can be seen in this plot, over the years the amount of passengers has grown tremendously. 
 The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
-This crash is caused by the covid-19 pandemic. 
+This crash is caused by the COVID-19 pandemic. 
 During this period of upheaval and uncertainty the borders of Australia were closed. However, the plot shows that in this year the airports still receive passengers, 
-just not as much as previous years. To see in which months covid-19 had an influence on the growth, the following scatterplot has been made.
+just not as much as previous years. To see in which months COVID-19 had an influence on the growth, the 'Passengers per air traffic movement' scatterplot has been made.
 
 """)
 st.plotly_chart(fig)
@@ -516,7 +499,7 @@ In this scatterplot can be seen that the more passengers an airport receives, th
 An observation to pay attention to is that the plot shows a flattening as passenger numbers rise. The biggest airports where flattening of the line can be clearly seen, 
 are Sydney, Melbourne, Brisbane and Perth. A reason for this can possibly be that these airports face a capacity limit.
 
-Because of covid-19 the growth is not in line with the growth of the last 40 years, the data from 2020 is shown in a different colour when selecting an airport in the dropdown menu. For example, 
+Because of COVID-19 the growth is not in line with the growth of the last 40 years, the data from 2020 is shown in a different colour when selecting an airport in the dropdown menu. For example, 
 when examining the plot of Adelaide Airport, it can be seen that there is a major difference between March and April. 
 Where in March 428,787 passengers arrived or departed from this airport, in April there were only 11,845 passengers. 
 The following month, May, this number increased to 15,739 passengers. The months hereafter, growth of the amount of air traffic movements and passengers can be observed. 
@@ -648,7 +631,7 @@ elif paxacmoption == 'Number of passengers greater than 1.5 million':
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2023], 
-                        range_y=[1000000,49000000],
+                        range_y=[1000000,47000000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
@@ -676,7 +659,7 @@ elif paxacmoption == 'Number of passengers until 1.5 million':
                         animation_frame="Year",
                         animation_group="AIRPORT",
                         range_x=[1984,2023], 
-                        range_y=[0,2000000],
+                        range_y=[0,1600000],
                         color="AIRPORT",               
                         opacity=0.9,                  
                         orientation="v",              
