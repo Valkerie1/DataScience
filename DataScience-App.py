@@ -35,20 +35,19 @@ url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(off
     datatxt= r.text
     datajs = json.loads(datatxt)
     print(datajs)
-
-datalist = []
-while i != 9200: # er zijn 9198 rijen
-    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+    datalist = []
+    while i != 9200: # er zijn 9198 rijen
+        url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
         
-    r=requests.get(url)
-    datatxt= r.text
-    datajs = json.loads(datatxt)
-    datalist.append(datajs['result']['records'])
+        r=requests.get(url)
+        datatxt= r.text
+        datajs = json.loads(datatxt)
+        datalist.append(datajs['result']['records'])
     
-    print(datalist)
-    print(i)
-    offset=offset+100
-    i = i+100
+        print(datalist)
+        print(i)
+        offset=offset+100
+        i = i+100
 
 listtemp = [x for l in datalist for x in l]
 df = pd.DataFrame(listtemp)
