@@ -655,7 +655,7 @@ elif paxacmoption == 'Number of passengers greater than 1.5 million':
                         text='Pax_Total_Year',
                         labels={"Pax_Total_Year":"Total number of passengers",
                         "AIRPORT":"Airport"},           
-                        title='Total number of passengers between 1985-2020 greater than 2 million',                    
+                        title='Total number of passengers between 1985-2020 greater than 1.5 million',                    
                         template='ggplot2',   
                         trendline='ols',
                         height= 650,
