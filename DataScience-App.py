@@ -543,8 +543,8 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             bargap=0.02,
             bargroupgap=0.05,
             width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'},
-            {'sliders':sliders})
+            title={'x':0.5, 'xanchor':'center'})
+fig3.update_layout({"sliders": sliders})
 
 
 st.write("""
