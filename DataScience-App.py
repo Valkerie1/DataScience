@@ -6,11 +6,7 @@ import json
 import plotly.express as px
 import plotly.graph_objects as go
 import time
-from sklearn.linear_model import LinearRegression
-import dash
-from dash import dcc
-from dash import html
-from dash.dependencies import Input, Output
+
 
 st.title('Impact of COVID-19 on Australian Air Traffic')
 
@@ -163,7 +159,7 @@ As can be seen in the line chart below, 'Passenger growth Australian airport', o
 The front runners are obviously the country's largest cities, Sydney, Melbourne, Brisbane and Perth. Besides, a huge crash can be observed in 2020. 
 This crash is caused by the COVID-19 pandemic. 
 During this period of upheaval and uncertainty the borders of Australia were closed. However, the plot shows that in this year the airports still receive passengers, 
-just not as much as previous years. To see in which months COVID-19 had an influence on the growth, the 'Passengers per air traffic movement' scatterplot has been made.
+just not as much as previous years. To see in which months COVID-19 had an influence on the growth, the 'Passengers per aircraft movement' scatterplot has been made.
 
 """)
 st.plotly_chart(fig)
@@ -481,7 +477,7 @@ for airport in airports:
                               text= df2020[df2020['AIRPORT'] == airport]['Date']))
 
 
-fig2.update_layout(title_text="Passengers per air traffic movement",
+fig2.update_layout(title_text="Passengers per aircraft movement",
             xaxis_title='Total number of passengers',
             yaxis_title='Air traffic movements', width=950, height=620,
             title={'x':0.5, 'xanchor':'center'})
@@ -495,25 +491,25 @@ fig2.update_layout({
 
 
 st.write("""
-In this scatterplot can be seen that the more passengers an airport receives, the more air traffic movements there are at that airport. 
+In the scatterplot, 'Passengers per aircraft movement', can be seen that the more passengers an airport receives, the more aircraft movements (acm) there are at that airport. 
 An observation to pay attention to is that the plot shows a flattening as passenger numbers rise. The biggest airports where flattening of the line can be clearly seen, 
 are Sydney, Melbourne, Brisbane and Perth. A reason for this can possibly be that these airports face a capacity limit.
 
 Because of COVID-19 the growth is not in line with the growth of the last 40 years, the data from 2020 is shown in a different colour when selecting an airport in the dropdown menu. For example, 
 when examining the plot of Adelaide Airport, it can be seen that there is a major difference between March and April. 
 Where in March 428,787 passengers arrived or departed from this airport, in April there were only 11,845 passengers. 
-The following month, May, this number increased to 15,739 passengers. The months hereafter, growth of the amount of air traffic movements and passengers can be observed. 
-This decrease and increase of the air traffic movements and passengers can also be observed for the other airports. 
+The following month, May, this number increased to 15,739 passengers. The months hereafter, growth of the amount of acm and passengers can be observed. 
+This decrease and increase of the acm and passengers can also be observed for the other airports. 
 To discover whether there is a relation between a faster recovery from this period and deploying domestic and/or international flights, the following bar plot is made.
 """)
 st.plotly_chart(fig2)
 
 st.write("""
-This bar plot shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
+The bar plot 'Domestic and international passengers per airport in 2020' shows which airports deployed international flights and/or domestic flights in 2020. Out of the 5 biggest airports, Sydney deployed only domestic flights, while Melbourne, Brisbane, Perth and Adelaide provided both types of flights. In total, 8 out of 21 biggest airports of Australia deployed during this period international and domestic flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
 
 Good to mention is that this plot has a logarithmic y axis. This way the data over a very wide range of values is displayed in a compact way. So, keep in mind that the largest numbers in the data are thousands of times larger than the smallest numbers.
 
-The total number of domestic flights in 2020 was mainly realized in the 2nd half of 2020. In the months of April, May and June the provincial borders in Australia were also closed for a while, this is clearly visible in the above scatterplot 'Passengers per air traffic movement', meaning that the points for the relevant months are located at the bottom left of the plot for all airports.
+The total number of domestic flights in 2020 was mainly realized in the 2nd half of 2020. In the months of April, May and June the provincial borders in Australia were also closed for a while, this is clearly visible in the above scatterplot 'Passengers per aircraft movement', meaning that the points for the relevant months are located at the bottom left of the plot for all airports.
 """)
 df_2020=df.query('Month ==12 & Year ==2020')
 
@@ -591,7 +587,7 @@ elif slider == "International":
 #chapter 3
 st.subheader('3. Forecasting the recovery')
 st.write("""
-This plot shows the total number of passengers over the years. When selecting ‘total number of acm over the years’ in the checkbox, this can be viewed too. Both plots show a dip in 1989. This was caused by the Australian pilots’ dispute. All of Australia's 1,645 domestic airline pilots resign over an airline's move to dismiss and sue them over a wage dispute. The dispute severely disrupted domestic air travel in Australia and had a major detrimental impact on the tourism industry. Hence, the dip in this plot. 
+The plot below, 'Total number of passengers over the years', shows the total number of passengers over the years. When selecting ‘total number of acm over the years’ in the checkbox, this can be viewed too. Both plots show a dip in 1989. This was caused by the Australian pilots’ dispute. All of Australia's 1,645 domestic airline pilots resign over an airline's move to dismiss and sue them over a wage dispute. The dispute severely disrupted domestic air travel in Australia and had a major detrimental impact on the tourism industry. Hence, the dip in this plot. 
 
 Another observation is that over the years there are more fluctuations. Where air transport was first something for the elite, over the years it has become more and more accessible to the general population. These passengers react more strongly to seasonal changes, hence the increase of fluctuations. 
 
@@ -626,9 +622,9 @@ elif option=='Total number of acm over the years':
             #st.balloons()
             fig6 = px.scatter(data_frame= All, x= 'Date', y= 'Acm_Total', trendline='lowess', trendline_options=dict(frac=0.01), trendline_color_override='red')
 
-            fig6.update_layout(title_text="Total number of air traffic movements over the years",
+            fig6.update_layout(title_text="Total number of aircraft movements over the years",
                         xaxis_title='Year',
-                        yaxis_title='Total number of air traffic movements', width=950, height=620,
+                        yaxis_title='Total number of aircraft movements', width=950, height=620,
                         title={'x':0.5, 'xanchor':'center'})
             st.plotly_chart(fig6)
             
@@ -637,10 +633,10 @@ elif option=='Total number of acm over the years':
 st.subheader('4. Conclusion')
 st.write("""
 In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 Australian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
-This drop in passenger number is caused by COVID-19. Both the air traffic movements as well as the passenger numbers decreased massively. A barplot was made to show the number of passengers from domestic and international flights in 2020.
+This drop in passenger number is caused by COVID-19. Both the acm as well as the passenger numbers decreased massively. A barplot was made to show the number of passengers from domestic and international flights in 2020.
 The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time. These international flights are repatriation flights.
 
-In chapter 3, the number of passengers and air traffic movements were plotted over the years. Due to the strong lockdown policy in Australia, the number of passengers and air traffic movements droped massively, however it can be seen that the number of passengers and air traffic movements will quickly recover as soon as the borders are opened for passengers from all around the world. 
+In chapter 3, the number of passengers and acm were plotted over the years. Due to the strong lockdown policy in Australia, the number of passengers and acm droped massively, however it can be seen that the number of passengers and acm will quickly recover as soon as the borders are opened for passengers from all around the world. 
 As soon as the borders are opened for everyone, it is expected that the number of passengers will be back add the same level as in 2019 within a couple of years. 
 
 """)
