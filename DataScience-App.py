@@ -636,7 +636,7 @@ elif option=='Total number of acm over the years':
 #chapter 4
 st.subheader('4. Conclusion')
 st.write("""
-In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 AUstralian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
+In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 Australian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
 This drop in passenger number is caused by COVID-19. Both the air traffic movements as well as the passenger numbers decreased massivly. A barplot was made to show the number of passengers from domestic and international flights in 2020.
 The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time. These international flights are repatriation flights.
 
