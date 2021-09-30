@@ -571,7 +571,7 @@ if pax == "All":
                        bargroupgap=0.05,
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
-     st.plotly_chart(fig3)
+    st.plotly_chart(fig3)
 
 elif pax == "Domestic":
     fig3 = go.Figure()
@@ -608,7 +608,7 @@ elif pax == "International":
                        bargroupgap=0.05,
                        width=950, height=620,
                        title={'x':0.5, 'xanchor':'center'})
-     st.plotly_chart(fig3)
+    st.plotly_chart(fig3)
 
 
 st.write("""
