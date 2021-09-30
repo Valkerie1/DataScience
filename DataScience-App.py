@@ -684,7 +684,13 @@ if easteregg=='Yes!':
             st.balloons()
 
 
-                             
+st.sidebar.write("""
+Made by:  
+Jelle Aardema
+Majdouline Aït Ali
+Maarten Meeuwes
+Robin Pelders
+""")
 
 
 
