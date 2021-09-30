@@ -638,9 +638,10 @@ st.subheader('4. Conclusion')
 st.write("""
 In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 21 AUstralian airports. This plot showed an increase of passenger numbers of the years, however the number of passengers decreased massivly in 2020.
 This drop in passenger number is caused by COVID-19. Both the air traffic movements as well as the passenger numbers decreased massivly. A barplot was made to show the number of passengers from domestic and international flights in 2020.
-The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time, the international flights are repatriation flights.
+The result showed that only 8 of the top 21 airports provided international flights. Although the borders were closed for a period of time. These international flights are repatriation flights.
 
-In chapter 3, the number of passengers and air traffic movements 
+In chapter 3, the number of passengers and air traffic movements where plotted over the years. Due to the strong lockdown policy in Australia, the number of passengers and air traffic movements droped massivly, however it can be seen that the number of passengers and air traffic movements will quickly recovery as soon as the borders are opend. 
+
 
 """)
 
