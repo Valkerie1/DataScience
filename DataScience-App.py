@@ -523,6 +523,17 @@ fig3.add_trace(go.Bar(x=airports,
                 name ='Domestic passengers',
                 marker_color='rgb(26, 118, 255)'
                 ))
+sliders = [
+    {'steps':[
+    {'method': 'update', 'label': 'All', 
+     'args': [{'visible': [True, True]}]},
+    {'method': 'update', 'label': '', 
+     'args': [{'visible': [True, False]}]},
+    {'method': 'update', 'label': '96 - 00', 
+     'args': [{'visible': [False, True]}]},
+    ]}]
+
+
 
 fig3.update_layout(title_text="Domestic and international passengers per airport in 2020",
             xaxis_tickfont_size=14,
@@ -532,7 +543,8 @@ fig3.update_layout(title_text="Domestic and international passengers per airport
             bargap=0.02,
             bargroupgap=0.05,
             width=950, height=620,
-            title={'x':0.5, 'xanchor':'center'})
+            title={'x':0.5, 'xanchor':'center'},
+            {'sliders':sliders})
 
 
 st.write("""
@@ -679,7 +691,7 @@ elif paxacmoption == 'Number of passengers until 1.5 million':
 #chapter 5
 st.subheader('5. Conclusion')
 st.write("""
-
+In chapter 2, the passenger growth has been plotted from 1985 until 2020 for the top 20 AUstralian airports. This plot showed 
 """)
 
 easteregg = st.radio('Finished?', 
