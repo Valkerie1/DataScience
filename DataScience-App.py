@@ -21,13 +21,19 @@ It is estimated that there are roughly 100.000 flights per day all around the wo
 #chapter 2
 st.subheader('2. Resources')
 st.write("""
-    offset =0
-    i = 0
-    url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
-    r=requests.get(url)
-    datatxt= r.text
-    datajs = json.loads(datatxt)
-    print(datajs)
+The data comes from the Australian government, so the code below retrieves the data from the API. However, every get call to retrieve the data retrieves 100 rows of data.
+To retrieve the next 100 rows, an offset has to be applied in the url. The code below uses a while loop to automatically apply the offset in the url for every itteration.
+In each itteration, 100 rows are retrieved and stored in a list named 'datalist'.
+However, there is a data limit on the API, so it was not possible to fetch all the data, therefor a CSV file was used to load the data.
+
+
+offset =0
+i = 0
+url = 'https://data.gov.au/data/api/3/action/datastore_search?offset=' + str(offset) + '&resource_id=38bdc971-cb22-4894-b19a-814afc4e8164'
+r=requests.get(url)
+datatxt= r.text
+datajs = json.loads(datatxt)
+print(datajs)
 
 datalist = []
 while i != 9200: # er zijn 9198 rijen
