@@ -507,8 +507,9 @@ This decrease and increase of the air traffic movements and passengers can also 
 To discover whether there is a relation between a faster recovery from this period and deploying domestic and/or international flights, the following bar plot is made.
 """)
 st.plotly_chart(fig2)
-'''
+
 df_2020=df.query('Month ==12 & Year ==2020')
+'''
 fig3 = go.Figure()
 
 fig3.update_layout(yaxis_type="log")
